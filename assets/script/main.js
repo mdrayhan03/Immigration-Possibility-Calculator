@@ -71,16 +71,18 @@ function q4_2function(element) {
 
 // q5
 function q5function(element) {
-    var one = document.getElementsByClassName('q5_2')[0];    
+    var one = document.getElementsByClassName('q5_2')[0];
+    var error = document.getElementsByClassName('error')[0];
 
     var value = parseInt(element.value) ;
     one.style.maxHeight = "0px";
+    error.style.maxHeight = "0px";
 
     if (value === 1) {        
         max_height(one) ;        
     }
     else if (value === 2) {
-        alert("You can't continue your application.");
+        max_height(error) ;
         element.value = "-1" ;
     }
 }
@@ -237,8 +239,18 @@ function q13_extend(speak, listen, read, write) {
 // final calculation
 function finalcalculation() {
     var output = document.getElementsByClassName("output")[0] ;
+    var federal_skill_output = document.getElementsByClassName("federal_skill_output")[0] ;
+    var suggestion = document.getElementsByClassName("suggestion")[0] ;
     output.style.maxHeight = "0px" ;
+    federal_skill_output.style.maxHeight = "0px" ;    
     max_height(output) ;
+    max_height(federal_skill_output) ;
+    suggestion.style.display = "block" ;
+}
+
+// suggestion page
+function suggestionFunction(element) {
+    window.location.href='infotaker.html';
 }
 
 // ---------------------------transition function end------------------------------ //

@@ -75,9 +75,9 @@
             onclick="commonfunction(this, document.getElementsByClassName('q4_1')[0])"            
           >
             <option selected value="-1">Select your age</option>
-            <option value="0">17 years of age or less</option>
-            <option value="14">18 years of age</option>
-            <option value="15">19 years of age</option>
+            <option value="19">17 years of age or less</option>
+            <option value="18">18 years of age</option>
+            <option value="17">19 years of age</option>
             <option value="16">20 to 29 years of age</option>
             <option value="15">30 years of age</option>
             <option value="14">31 years of age</option>
@@ -436,7 +436,7 @@
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">523-548</option>
-            <option value="522">203-522</option>
+            <option value="522">503-522</option>
             <option value="502">458-502</option>
             <option value="457">398-457</option>
             <option value="397">369-397</option>
@@ -545,7 +545,7 @@
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">523-548</option>
-            <option value="522">203-522</option>
+            <option value="522">503-522</option>
             <option value="502">458-502</option>
             <option value="457">398-457</option>
             <option value="397">369-397</option>
@@ -1002,7 +1002,14 @@
           </div>
 
           <button class="button" onclick="mainCalculation();finalcalculation()" disabled>Calculate</button>
-          <div class="output"></div>
+          <div class="question output"></div>
+          <div class="question federal_skill_output"></div>
+          <div class="question error">
+            <h2>
+              You are not eligible to continue the form. You need to submit language test results that are less than two years old for all programs under Express Entry, even if English or French is your first language.              
+            </h2>
+          </div>
+          <button class="button suggestion" onclick="suggestionFunction(this)">Suggestion</button>
       </div>
       
     </div>

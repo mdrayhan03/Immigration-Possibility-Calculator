@@ -1,0 +1,65 @@
+:root {
+    --bg-color : #FFFFFF ;
+    --heading-color : #243761 ;    
+    --text-color : #000000 ;
+    --button-color : rgba(9, 139, 9, 0.3) ;
+    --primary-font : "Roboto" ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary-font);
+}
+
+.main {
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    font-size: 22px;
+    /* background-image: url("../media/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+.main table tr td {
+    padding: 10px;    
+}
+
+.main table tr td:first-child {
+    font-weight: 500;
+}
+
+.main input {
+    width: 300px;    
+    border: 0px;
+    outline: 0px;
+    border-bottom: 2px solid black;
+    font-size: 18px;
+    background-color: transparent;
+    backdrop-filter: blur(6px);
+}
+
+.button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px;
+    font-size: 22px;
+    font-weight: 600;
+    border: 0px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    background-color: var(--button-color);
+}
+
+.button:hover {
+    background-color: rgba(9, 139, 9, 0.5) ;
+}
