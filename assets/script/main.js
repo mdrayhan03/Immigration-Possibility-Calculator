@@ -194,6 +194,21 @@ function q10function(element) {
     }
 }
 
+function q11_1function(element) {
+    var value = parseInt(element.value)
+    var one = document.getElementsByClassName("q11-2")[0] ;
+    var two = document.getElementsByClassName("q12")[0] ;
+    one.style.maxHeight = "0px" ;
+    two.style.maxHeight = "0px" ;    
+
+    if (value === 1) {
+        max_height(one) ;
+    }
+    else if (value === 2) {
+        max_height(two) ;
+    }
+}
+
 // q13
 function q13function(element) {
     var celpip = document.getElementsByClassName('q13_CELPIP')[0];

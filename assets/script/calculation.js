@@ -220,6 +220,7 @@ function spouseclblevel(element) {
 clblevel = [0, 4, 5, 6]
 age = [2,3,4,5,6,7,8,9,10,11,12,12,12,12,12,12,12,12,12,0]
 work = [0,9,11,11,13,13,15]
+education = [0,5,15,19,21,22,23,25]
 
 function federal_skilled_workerCalculation() {
     let firstLanguagePoint = 0, secondLanguagePoint = 0, spouseLanguagePoint = 0, canadianstudyPoint = 0, spousecanadianstudyPoint = 0, canadianworkPoint = 0, spousecanadianworkPoint = 0, adaptablearrangePoint = 0, relativePoint = 0 ;
@@ -252,6 +253,10 @@ function federal_skilled_workerCalculation() {
     var ageValue = parseInt(document.getElementById("age").value) ;
     agePoint = age[ageValue] ;
 
+    // education
+    var educationValue = parseInt(document.getElementById("education").value) ;
+    educationPoint = education[educationValue] ;
+
     // job offer
     var jobValue = parseInt(document.getElementById("NOC_TEER").value) ;
     if (jobValue === 2 || jobValue === 3) {
@@ -276,7 +281,10 @@ function federal_skilled_workerCalculation() {
     }
 
     // spouse canadian degree
-    spousecanadianstudyPoint ;
+    var spousedegreevalue = parseInt(document.getElementById("spouse_canadian_degree_level").value) ;
+    if (spousedegreevalue === 2) {
+        spousecanadianstudyPoint = 5 ;
+    }
 
     // canadian work experience
     var workValue = parseInt(document.getElementById("work_exp").value) ;
@@ -328,8 +336,8 @@ let ageM = [0, 5, 15, 25, 35, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 9
 let ageU = [0, 6, 17, 28, 39, 50, 55, 61, 66, 72, 77, 83, 88, 94, 99, 105, 110, 105, 99, 0] ;
 let educationM = [0, 28, 84, 91, 112, 119, 126, 140] ;
 let educationU = [0, 30, 90, 98, 120, 128, 135, 150] ;
-let canadianworkM = [0, 35, 46, 56, 63, 70] ;
-let canadianworkU = [0, 40, 53, 64, 72, 80] ;
+let canadianworkM = [0, 35, 46, 56, 63, 70, 70] ;
+let canadianworkU = [0, 40, 53, 64, 72, 80, 80] ;
 let canadianworkdegreeone = [0, 13, 25] ;
 let canadianworkdegreetwo = [0, 25, 50] ;
 let firstclbM = [0, 6, 8, 16, 22, 29, 32] ;

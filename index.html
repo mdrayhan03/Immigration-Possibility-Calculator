@@ -14,6 +14,7 @@
   <body>
     <div class="all">
       <div class="body-container">
+        <!-- single or married & spouse will come or not -->
         <div class="question q1">
           <h2>1. What is your marital status</h2>
           <!-- q2.i will appear if someone select class="selection" common law and married -->
@@ -66,6 +67,7 @@
             <option value="2">Yes</option>
           </select>
         </div>
+        <!-- client personal info -->
         <div class="question q3">
           <h2>3. How old are you?</h2>
           <select
@@ -160,7 +162,7 @@
             </option>
           </select>
         </div>
-
+        <!-- language proficiency -->
         <div class="question q5">
           <h2>
             5. Official languages: Canada's official languages are English and
@@ -198,6 +200,7 @@
             <option value="5">TCF Canada</option>
           </select>
         </div>
+        <!-- first official language info -->
         <div class="question q5_CELPIP">
           <h3>Speaking</h3>
           <select
@@ -468,6 +471,7 @@
             <option value="3">0-3</option>
           </select>
         </div>
+        <!-- second france language info -->
         <div class="question q5_3">
           <h2>iii. Do you have other language results?</h2>
           <select class="selection" id="other_lang_test" name="other_lang_test" onclick="q5_3function(this)">
@@ -577,6 +581,7 @@
             <option value="3">0-3</option>
           </select>
         </div>
+        <!-- work experience -->
         <div class="question q6">
           <h2>6. Work Experience</h2>
           <h3>
@@ -590,7 +595,8 @@
             <option value="2">2 year</option>
             <option value="3">3 year</option>
             <option value="4">4 year</option>
-            <option value="5">5 year or more year</option>
+            <option value="5">5 year</option>
+            <option value="6">6 year or more year</option>
           </select>
         </div>
         <div class="question q6_2">
@@ -673,7 +679,7 @@
           <div class="question q11">
             <h2>Spouse Information</h2>
             <h2>11. What is the highest level of education for which your spouse or common-law partner's has?</h2>
-            <select class="selection" id="spouseeducation" name="spouseeducation" onclick="commonfunction(this, document.getElementsByClassName('q12')[0])">
+            <select class="selection" id="spouseeducation" name="spouseeducation" onclick="commonfunction(this, document.getElementsByClassName('q11-1')[0])">
               <option selected value="-1">Select..</option>
               <option value="0">None or less than secondary(high school)</option>
               <option value="1">Secondary Diploma (high school graduation)</option>
@@ -698,6 +704,34 @@
                 licensed profession
               </option>
               <option value="6">Doctoral level university degree (Ph.D.)</option>
+            </select>
+          </div>
+          <div class="question q11-1">
+            <h2>11. ii. Have your spouse earned a Canadian degree, diploma or certificate?</h2>
+            <select class="selection" id="spouse_canadian_degree" name="spouse_canadian_degree" onclick="q11_1function(this)">
+              <option selected value="-1">Select..</option>            
+              <option value="2">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+          <div class="question q11-2">
+            <h2>
+              11. iii. Choose the best answer to describe this level of education.
+            </h2>
+            <select
+              class="selection"
+              id="spouse_canadian_degree_level"
+              name="spouse_canadian_degree_level"
+              onclick="commonfunction(this, document.getElementsByClassName('q12')[0])"
+            >
+              <option selected value="-1">Select..</option>
+              <option value="0">Secondary (high school) or less</option>
+              <option value="1">One or two-year diploma or certificate</option>
+              <option value="2">
+                Degree, diploma or certificate of three years or longer a
+                Master's, professional or doctoral degree of at least one academic
+                year
+              </option>
             </select>
           </div>
           <div class="question q12">
@@ -1000,8 +1034,9 @@
               <option value="3">0-3</option>
             </select>
           </div>
-
+          <!-- button handle for calculation -->
           <button class="button" onclick="mainCalculation();finalcalculation()" disabled>Calculate</button>
+          <!-- result show handle CRS calculation, Federal Skill Work and Error -->
           <div class="question output"></div>
           <div class="question federal_skill_output"></div>
           <div class="question error">
@@ -1009,6 +1044,7 @@
               You are not eligible to continue the form. You need to submit language test results that are less than two years old for all programs under Express Entry, even if English or French is your first language.              
             </h2>
           </div>
+          <!-- button handle for suggestion page -->
           <button class="button suggestion" onclick="suggestionFunction(this)">Suggestion</button>
       </div>
       
