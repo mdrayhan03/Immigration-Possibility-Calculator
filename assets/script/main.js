@@ -264,8 +264,21 @@ function finalcalculation() {
 }
 
 // suggestion page
-function suggestionFunction(element) {
-    window.location.href='infotaker.html';
+function info_popup_Function(element) {
+    // window.location.href='infotaker.html';
+    var one = document.getElementsByClassName("main-body")[0] ;
+    one.style.width = "100%" ;
+    one.style.height = "100%" ;
+}
+
+function suggestion_show_Function() {
+    var one = document.getElementsByClassName("main-body")[0] ;
+    var two = document.getElementsByClassName("suggestion-main")[0]
+    one.style.width = "0px" ;
+    one.style.height = "0px" ;
+    two.style.maxHeight = "0px" ;
+    max_height(two) ;
+
 }
 
 // ---------------------------transition function end------------------------------ //

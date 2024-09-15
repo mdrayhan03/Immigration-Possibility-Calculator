@@ -76,8 +76,9 @@
     --bg-color : #FFFFFF ;
     --heading-color : #243761 ;    
     --text-color : #000000 ;
-    --button-color : rgba(9, 139, 9, 0.3) ;
-    --button-color-hover : rgba(9, 139, 9, 0.5) ;
+    --button-color : #243761 ;
+    --button-color-hover : #243761 ;
+    --button-text-color : #FFFFFF ;
     --primary-font : "Roboto" ;
 }
   
@@ -89,6 +90,10 @@
 body {    
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-family: var(--primary-font);
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -144,12 +149,13 @@ body {
 
 .button {
   margin: 50px 0;
-  padding: 10px 0;
+  padding: 15px 0;
   width: 100%;
-  font-size: 22px;  
+  font-size: 24px;  
   font-weight: 600;  
   border: 0px solid transparent;
   border-radius: 15px;
+  color: var(--button-text-color);
   background-color: var(--button-color);
   /* background: linear-gradient(to bottom, var(--heading-color), lightblue); */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -168,4 +174,61 @@ body {
 
 .suggestion {
   display: none;
+}
+
+.main-body {
+  position: fixed;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+}
+
+.info-main {
+  padding: 50px 50px 0px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  font-size: 22px;
+}
+
+.info-main table tr td {
+  padding: 10px;    
+}
+
+.info-main table {
+  width: 500px;
+}
+
+.info-main table tr td:first-child {
+  font-weight: 500;
+}
+
+.info-main input {
+  width: 100%;
+  border: 0px;
+  outline: 0px;
+  border-bottom: 2px solid black;
+  font-size: 18px;
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+}
+
+.info-main .popup {
+  margin: 20px 0px;
+}
+
+.suggestion-main {  
+  max-height: 0px;
+  margin:100px;
+  margin-top: 0px;
+  font-size: 18px;
+  overflow: hidden;
 }

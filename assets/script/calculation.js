@@ -382,55 +382,74 @@ function crsCalculation() {
     else if (status === false) {
         educationPoint = educationU[degree] ;
     }
-    console.log() ;educationPoint
 
     // first language clb
-    var d = firstclblevel(document.getElementById("language_test_type"))    
+    var d = firstclblevel(document.getElementById("language_test_type"))
+    var firstdict = {
+        listening: 0,
+        reading: 0,
+        writing: 0,
+        speaking: 0
+    }
     for (let key in d) {
         if (status === true) {
             if (d[key] >= 10) {
                 firstLanguagePoint += firstclbM[6] ;
+                firstdict[key] =  firstclbM[6] ;
             }
             else if (d[key] === 9) {
                 firstLanguagePoint += firstclbM[5] ;
+                firstdict[key] =  firstclbM[5] ;
             }
             else if (d[key] === 8) {
                 firstLanguagePoint += firstclbM[4] ;
+                firstdict[key] =  firstclbM[4] ;
             }
             else if (d[key] === 7) {
                 firstLanguagePoint += firstclbM[3] ;
+                firstdict[key] =  firstclbM[3] ;
             }
             else if (d[key] === 6) {
                 firstLanguagePoint += firstclbM[2] ;
+                firstdict[key] =  firstclbM[2] ;
             }
             else if (d[key] === 4 || d[key] === 5) {
                 firstLanguagePoint += firstclbM[1] ;
+                firstdict[key] =  firstclbM[1] ;
             }
             else if (d[key] < 4) {
                 firstLanguagePoint += firstclbM[0] ;
+                firstdict[key] =  firstclbM[6] ;
             }
         }
         else if (status === false) {
             if (d[key] >= 10) {
                 firstLanguagePoint += firstclbU[6] ;
+                firstdict[key] =  firstclbM[6] ;
             }
             else if (d[key] === 9) {
                 firstLanguagePoint += firstclbU[5] ;
+                firstdict[key] =  firstclbM[5] ;
             }
             else if (d[key] === 8) {
                 firstLanguagePoint += firstclbU[4] ;
+                firstdict[key] =  firstclbM[4] ;
             }
             else if (d[key] === 7) {
                 firstLanguagePoint += firstclbU[3] ;
+                firstdict[key] =  firstclbM[3] ;
             }
             else if (d[key] === 6) {
                 firstLanguagePoint += firstclbU[2] ;
+                firstdict[key] =  firstclbM[2] ;
             }
             else if (d[key] === 4 || d[key] === 5) {
                 firstLanguagePoint += firstclbU[1] ;
+                firstdict[key] =  firstclbM[1] ;
             }
             else if (d[key] < 4) {
                 firstLanguagePoint += firstclbU[0] ;
+                firstdict[key] =  firstclbM[0] ;
             }
         }
     }
@@ -572,10 +591,6 @@ function crsCalculation() {
         
         console.log("First Language : "+firstLanguageCLB[0]+" "+firstLanguageCLB[1]+" "+firstLanguageCLB[2]+" "+firstLanguageCLB[3]) ;
 
-        if (value > 0) {
-            console.log("Integer") ;
-        }
-
         if ((value >= 4) || (firstLanguageCLB[0] <= 4 && firstLanguageCLB[1] <= 4 && firstLanguageCLB[2] <= 4 && firstLanguageCLB[3] <= 4)) {
             console.log("Point : 25") ;
             nclcPoint = 25 ;
@@ -664,9 +679,92 @@ function crsCalculation() {
                "<h3>Province/Territory certificate : "+nominationPoint+"</br>"
                ;
     output.innerHTML = text ;
+    suggestionFunction(total, firstLanguageCLB, firstdict) ;
 }
 
 function mainCalculation() {
     crsCalculation() ;
     federal_skilled_workerCalculation() ;
+}
+
+languageL = ["","CELPIP-G", "IELTS", "PTE CORE", "TEF Canada", "TCF Canada"] ;
+function suggestionFunction (total, fclb, fclbpoint) {
+    // , education, sclb, employment, canadianedu
+    var element = document.getElementsByClassName("suggestion-output")[0] ;
+    var text = "" ;
+    var s = false,l = false ;
+    var firstLanguage = [] ;
+    var firstLanguagePoint = [] ;
+
+    text += "<p>Your Current CRS Score: "+total+"</p></br><p><b>Improvement opportunities for CRS score:</b></p></br>";
+
+    // short term    
+    stext = "<p><b><u>Short Term: </u></b></p></br>";
+
+    // language 
+    if (fclb[0] < 9) {
+        firstLanguage.push("Listening") ;
+        firstLanguagePoint.push(29-fclbpoint["listening"])
+    }
+    if (fclb[1] < 9) {
+        firstLanguage.push("Reading") ;
+        firstLanguagePoint.push(29-fclbpoint["reading"])
+    }
+    if (fclb[2] < 9) {
+        firstLanguage.push("Writing") ;
+        firstLanguagePoint.push(29-fclbpoint["writing"])
+    }
+    if (fclb[3] < 9) {
+        firstLanguage.push("Speaking") ;
+        firstLanguagePoint.push(29-fclbpoint["speaking"])        
+    }
+
+    stext += "<b>Language Improvement:</b> Only by improving your " ;
+    
+    if (firstLanguage.length > 1) {
+        s = true ;
+        for (let i = 0; i < firstLanguage.length-1 ; i++) {
+            stext += firstLanguage[i] + " & " ;
+        }
+        stext += firstLanguage[firstLanguage.length-1]
+    }
+    else if (firstLanguage.length === 1) {
+        s = true ;
+        stext += firstLanguage[0];
+    }
+    stext += " Band to 9 will you increase your total CRS score to " ;
+    var ftotal = total ;
+    for (let i=0; i<firstLanguagePoint.length;i++) {
+        ftotal += firstLanguagePoint[i] ;
+    }
+
+    stext += ftotal+" (adding "+ 29 * firstLanguagePoint.length +" additional points).</br>" ;
+
+    // language & degree
+    // var educationValue = parseInt(document.getElementById("education").value) ;
+    // var ftotal = total ;
+    // if (educationValue < 6) {
+    //     text += "<p><b>Language and Education Improvement (without Master):</b> A Masters Degree with an" ;
+    //     if (parseInt())
+    //     text += "can increase your current CRS score to 478 (adding 36 additional points)"
+    // }
+    var ltext = "<p><b><u>Long-term:</u></b></p></br>"
+    var canadianDegreeValue = parseInt(document.getElementById("canadian_degree").value) ;
+    if (canadianDegreeValue === 2) {
+        l = true ;
+        ltext += "<p><b>Canadian Degree:</b> Post Secondary Canadian 1 or 2 years degree can add 15 additional points or a 3 years or longer degree can add 30 points with the CRS score. If the program qualifies, it will also allow you to get a 1-3 year work permit after graduation to work with any employers in Canada. </p></br>" ;
+    }
+
+    var jobOfferValue = parseInt(document.getElementById("labour_impact").value) ;
+    if (jobOfferValue === 1) {
+        l = true ;
+        ltext += "<p><b>Arranged Job Offer:</b> Getting an LMIA-based job offer could add 50 additional points, sometimes 200 extra points to the total CRS score.</p></br>"
+    }
+
+    if (s === true) {text += stext ;}    
+    if (l === true) {text += ltext ;}
+
+    console.log(text) ;
+    element.innerHTML = text ;
+
 }
