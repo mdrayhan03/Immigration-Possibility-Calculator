@@ -271,6 +271,12 @@ function info_popup_Function(element) {
     one.style.height = "100%" ;
 }
 
+function info_popup_cross_Function() {
+    var element = document.getElementsByClassName("main-body")[0] ;
+    element.style.width = "0px" ;
+    element.style.height = "0px" ;
+}
+
 function suggestion_show_Function() {
     var one = document.getElementsByClassName("main-body")[0] ;
     var two = document.getElementsByClassName("suggestion-main")[0]

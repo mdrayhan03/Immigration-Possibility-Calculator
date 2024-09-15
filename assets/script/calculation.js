@@ -719,7 +719,7 @@ function suggestionFunction (total, fclb, fclbpoint) {
         firstLanguagePoint.push(29-fclbpoint["speaking"])        
     }
 
-    stext += "<b>Language Improvement:</b> Only by improving your " ;
+    stext += "<p><b>Language Improvement:</b> Only by improving your " ;
     
     if (firstLanguage.length > 1) {
         s = true ;
@@ -738,16 +738,20 @@ function suggestionFunction (total, fclb, fclbpoint) {
         ftotal += firstLanguagePoint[i] ;
     }
 
-    stext += ftotal+" (adding "+ 29 * firstLanguagePoint.length +" additional points).</br>" ;
+    stext += ftotal+" (adding "+ 29 * firstLanguagePoint.length +" additional points).</p></br>" ;
 
-    // language & degree
-    // var educationValue = parseInt(document.getElementById("education").value) ;
-    // var ftotal = total ;
-    // if (educationValue < 6) {
-    //     text += "<p><b>Language and Education Improvement (without Master):</b> A Masters Degree with an" ;
-    //     if (parseInt())
-    //     text += "can increase your current CRS score to 478 (adding 36 additional points)"
-    // }
+    // language
+    var educationValue = parseInt(document.getElementById("education").value) ;
+    var ftotal = total ;
+    if (educationValue < 6) {
+        var p = 0 ;
+        if (status === false) {p = 135 - educationU[educationValue];}
+        else if (status === true) {p = 126 - educationU[educationValue];}
+        ftotal += p ;
+        text += "<p><b>Language and Education Improvement (without Master):</b> A Masters Degree with suggested language improvment can increase your current CRS score to "+ftotal+" (adding "+p+" additional points)</p></br>" ;
+    }
+
+    // long term
     var ltext = "<p><b><u>Long-term:</u></b></p></br>"
     var canadianDegreeValue = parseInt(document.getElementById("canadian_degree").value) ;
     if (canadianDegreeValue === 2) {
