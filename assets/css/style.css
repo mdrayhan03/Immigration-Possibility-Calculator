@@ -209,7 +209,7 @@ button:disabled {
 }
 
 .suggestion {
-  /* display: none; */
+  display: none;
 }
 
 .main-body {
