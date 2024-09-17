@@ -277,6 +277,16 @@ function info_popup_cross_Function() {
     element.style.height = "0px" ;
 }
 
+function check_Function(element) {
+    var button = document.getElementsByClassName("popup")[0] ;
+    if (element.checked) {
+        button.disabled = false ;
+    }
+    else {
+        button.disabled = true ;
+    }
+}
+
 function suggestion_show_Function() {
     var one = document.getElementsByClassName("main-body")[0] ;
     var two = document.getElementsByClassName("suggestion-main")[0]
