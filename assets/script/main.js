@@ -294,7 +294,6 @@ function suggestion_show_Function() {
     one.style.height = "0px" ;
     two.style.maxHeight = "0px" ;
     max_height(two) ;
-
 }
 
 function booking_Function() {
