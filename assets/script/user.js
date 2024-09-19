@@ -1,8 +1,8 @@
-const selects = document.querySelectorAll('.selection');
-            
-            selects.forEach(select => {
-                select.disabled = true;
-            });
+const selects = document.querySelectorAll('.selection');            
+selects.forEach(select => {
+    select.disabled = true;
+});
+  selects[0].disabled = false ;
 
 async function select_email() {
   const response = await base.from("tb_calculation").select("id, email") ;
