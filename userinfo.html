@@ -17,8 +17,10 @@
   <body>
     <style>
         .question {
-            max-height: auto;
-            height: auto;
+          max-height: 0px;
+        }
+        .button {
+          margin: 0px;
         }
     </style>
     <div class="logo">
@@ -28,8 +30,25 @@
     </div>
     <div class="all">
       <div class="body-container">
+        <div class="query_taker">
+          <h2>Select user email</h2>
+          <select class="selection" name="" id="user_email_select">
+            <option value="-1" selected>Select..</option>
+          </select>
+          <button class="button" onclick="user_info()">Search</button>
+        </div>
         <!-- single or married & spouse will come or not -->
-        <div class="question q1">
+        <div class="personal_info">
+          <h2>User Name</h2>
+          <input class="selection" type="text" id="name" placeholder="user name">
+          <h2>User Email</h2>
+          <input class="selection" type="text" id="email" placeholder="user email">
+          <h2>User Country</h2>
+          <input class="selection" type="text" id="country" placeholder="user country">
+          <h2>User Phone no</h2>
+          <input class="selection" type="text" id="pN" placeholder="user phone no">
+        </div>
+        <div class="q1">
           <h2>1. What is your marital status</h2>
           <!-- q2.i will appear if someone select class="selection" common law and married -->
           <select
@@ -37,7 +56,6 @@
             id="martial-status"
             name="marital_status"
             onclick="q1function(this)"
-            on
           >
             <option selected value="-1">Select your marital status</option>
             <option value="1">Annulled Marriage</option>
@@ -49,7 +67,7 @@
             <option value="1">Widowed</option>
           </select>
         </div>
-        <div class="question q2_1">
+        <div class="q2_1">
           <h2>
             2. i. Is your spouse or common-law partner a citizen or permanent
             resident of Canada?
@@ -60,13 +78,13 @@
             name="spouse_canada"
             onclick="q2_1function(this)"
           >
-            <option selected value="-1">Select</option>
+            <option selected value="-1">Select..</option>
             <!-- if someone selects no then 2.ii will appear -->
             <option value="2">No</option>
             <option value="1">Yes</option>
           </select>
         </div>
-        <div class="question q2_2">
+        <div class="q2_2">
           <h2>
             2. ii. Will your spouse or common-law partner come with you to
             Canada?
@@ -77,13 +95,13 @@
             name="will_spouse_come"
             onclick="commonfunction(this, document.getElementsByClassName('q3')[0])"
           >
-            <option selected value="-1">Select</option>
+            <option selected value="-1">Select..</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
           </select>
         </div>
         <!-- client personal info -->
-        <div class="question q3">
+        <div class="q3">
           <h2>3. How old are you?</h2>
           <select
             class="selection"
@@ -115,7 +133,7 @@
           </select>
         </div>
 
-        <div class="question q4_1">
+        <div class="q4_1">
           <h2>4. What is your level of education?</h2>
           <select class="selection" id="education" name="education" onclick="commonfunction(this, document.getElementsByClassName('q4_2')[0])">
             <option selected value="-1">Select..</option>
@@ -145,7 +163,7 @@
           </select>
         </div>
 
-        <div class="question q4_2">
+        <div class="q4_2">
           <h2>
             4. ii. Have you earned a Canadian degree, diploma or certificate?
           </h2>
@@ -157,7 +175,7 @@
         </div>
         <!-- if someone selectes yes then 4c will appear -->
 
-        <div class="question q4_3">
+        <div class="q4_3">
           <h2>
             4. iii. Choose the best answer to describe this level of education.
           </h2>
@@ -178,7 +196,7 @@
           </select>
         </div>
         <!-- language proficiency -->
-        <div class="question q5">
+        <div class="q5">
           <h2>
             5. Official languages: Canada's official languages are English and
             French.
@@ -196,7 +214,7 @@
           </select>
         </div>
         <!-- if someone selects they will no longer be able to continue the application -->
-        <div class="question q5_2">
+        <div class="q5_2">
           <h2>
             ii. Which language test did you take for your first official
             language?
@@ -487,7 +505,7 @@
           </select>
         </div>
         <!-- second france language info -->
-        <div class="question q5_3">
+        <div class="q5_3">
           <h2>iii. Do you have other language results?</h2>
           <select class="selection" id="other_lang_test" name="other_lang_test" onclick="q5_3function(this)">
             <option selected value="-1">Select..</option>
@@ -597,7 +615,7 @@
           </select>
         </div>
         <!-- work experience -->
-        <div class="question q6">
+        <div class="q6">
           <h2>6. Work Experience</h2>
           <h3>
             i. In the last ten years, how many years of skilled work experience
@@ -614,7 +632,7 @@
             <option value="6">6 year or more year</option>
           </select>
         </div>
-        <div class="question q6_2">
+        <div class="q6_2">
           <h3>
             ii. In the last 10 years, how many total years of foreign skilled
             work experience do you have?
@@ -627,7 +645,7 @@
             <option value="2">3 years or more</option>
           </select>
         </div>
-        <div class="question q7">
+        <div class="q7">
           <h2>
             7) Do you have a certificate of qualification from a Canadian
             province, territory or federal body?
@@ -644,7 +662,7 @@
           </select>
         </div>
         <!-- additional_points start here -->
-        <div class="question q8">
+        <div class="q8">
           <h2>
             8) Do you have a valid job offer supported by a Labour Market
             Impact Assessment (if needed)?
@@ -656,7 +674,7 @@
           </select>
         </div>
         <!-- if someone selects yes the following options will appear -->
-        <div class="question q8_1">
+        <div class="q8_1">
           <h2>8a) Which NOC TEER is the job offer?</h2>
           <select class="selection" id="NOC_TEER" name="NOC_TEER" onclick="commonfunction(this, document.getElementsByClassName('q9')[0])">
             <option selected value="-1">Select..</option>
@@ -667,7 +685,7 @@
             <option value="3">NOC TEER 4 or 5</option>
           </select>
         </div>
-        <div class="question q9">
+        <div class="q9">
           <h2>
             9) Do you have a nomination certificate from a province or
             territory?
@@ -678,7 +696,7 @@
             <option value="2">Yes</option>
           </select>
         </div>
-        <div class="question q10">
+        <div class="q10">
           <h2>
             10) Do you or your spouse or common law partner (if they will come
             with you to Canada) have at least one brother or sister living in
@@ -691,7 +709,7 @@
           </select>
         </div>
         <!-- spouse info -->
-        <div class="question q11">
+        <div class="q11">
           <h2>Spouse Information</h2>
           <h2>11. What is the highest level of education for which your spouse or common-law partner's has?</h2>
           <select class="selection" id="spouseeducation" name="spouseeducation" onclick="commonfunction(this, document.getElementsByClassName('q11-1')[0])">
@@ -721,7 +739,7 @@
             <option value="6">Doctoral level university degree (Ph.D.)</option>
           </select>
         </div>
-        <div class="question q11-1">
+        <div class="q11-1">
           <h2>11. ii. Have your spouse earned a Canadian degree, diploma or certificate?</h2>
           <select class="selection" id="spouse_canadian_degree" name="spouse_canadian_degree" onclick="q11_1function(this)">
             <option selected value="-1">Select..</option>            
@@ -729,7 +747,7 @@
             <option value="1">Yes</option>
           </select>
         </div>
-        <div class="question q11-2">
+        <div class="q11-2">
           <h2>
             11. iii. Choose the best answer to describe this level of education.
           </h2>
@@ -749,7 +767,7 @@
             </option>
           </select>
         </div>
-        <div class="question q12">
+        <div class="q12">
           <h2>12. In the last ten years, how many years of skilled work experience in Canada does your spouse/common-law partner have?</h2>
           <select class="selection" id="spousework_exp" name="spousework_exp" onclick="commonfunction(this, document.     getElementsByClassName('q13')[0])">
             <option selected value="-1">Select...</option>
@@ -761,7 +779,7 @@
             <option value="5">5 year or more year</option>
           </select>
         </div>
-        <div class="question q13">
+        <div class="q13">
           <h2>
             13. Did your spouse or common-law partner take a language test? If so, which one?
           </h2>
@@ -1050,22 +1068,17 @@
           </select>
         </div>
         <!-- button handle for calculation -->
-        <button class="button" onclick="mainCalculation();finalcalculation()" disabled>Calculate</button>
+        <button class="button" onclick="mainCalculation();finalcalculation();suggestion_show_Function()">Calculate</button>
+        <!-- <button class="button suggestion">Suggestion</button> -->
+         <div class="suggestion"></div>
         <!-- result show handle CRS calculation, Federal Skill Work and Error -->
-        <div class="question output"></div>
-        <div class="question federal_skill_output"></div>
-        <div class="question error">
-          <h2>
-            You are not eligible to continue the form. You need to submit language test results that are less than two years old for all programs under Express Entry, even if English or French is your first language.              
-          </h2>
-        </div>
-        <!-- button handle for suggestion page -->
-        <button class="button suggestion" onclick="info_popup_Function(this)">Suggestion</button>
+        <div class="output"></div>
+        <div class="federal_skill_output"></div>      
       </div>      
     </div>
     <div class="main-body">
       <div class="info-main">
-        <i class="fa-solid fa-xmark" onclick="info_popup_cross_Function()"></i>
+        <i class="fa-solid fa-xmark" onchange="info_popup_cross_Function()"></i>
           <table>
               <tr>
                   <th colspan="2">Information</th>
@@ -1088,13 +1101,13 @@
               </tr>
               <tr>
                 <td colspan="2" class="combobox-td">                                
-                  <input type="checkbox" name="check" id="check" style="width: 12px;" onclick="check_Function(this)">
+                  <input type="checkbox" name="check" id="check" style="width: 12px;" onchange="check_Function(this)">
                   <label for="check" style="font-size: 12px; text-align: justify;">I agree and allow Immizen Immigration Consulting Inc. to securely store the information that I provided and consent to contact me with further communications.</label>         
                 </td>
               </tr>
               <tr>
                   <td colspan="2">
-                      <button class="button popup" onclick="suggestion_show_Function(); take_info_function()" disabled>Click</button>
+                      <button class="button popup" onchange="suggestion_show_Function(); take_info_function()" disabled>Click</button>
                   </td>
               </tr>
           </table>
@@ -1102,15 +1115,13 @@
     </div>
     <div class="suggestion-main">
       <h1>Suggestions</h1></br>
-      <div class="suggestion-output"></div>
-      <button class="button" onclick=" booking_Function() ">BOOK A CONSULTATION</button>
-      <p class="disclaimer"><i><b>Disclaimer:</b> This a calculation based on the information provided by the client, this doesn’t guarantee accuracy for the calculation or claiming points to IRCC. The tool is meant to provide an idea about areas for improvement.</i></p>
+      <div class="suggestion-output"></div>      
     </div>
   </body>
   <script src="assets/script/main.js"></script>
   <script src="assets/script/calculation.js"></script>
-  <script src="assets/script/user.js"></script>
   <!-- supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest/dist/umd/supabase.min.js"></script>
   <script src="assets/script/supabase.js"></script>
+  <script src="assets/script/user.js"></script>
 </html>

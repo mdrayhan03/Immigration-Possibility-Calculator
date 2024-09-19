@@ -19,8 +19,6 @@ async function authenticate() {
 async function is_connected(email, pN) {
     const response = await base.from("tb_calculation").select("*").or(`email.eq.${email},pN.eq.${pN}`) ;
 
-    console.log(response.data);
-
     if (response.error) {
         console.error("Error", response.error) ;
         return 0 ;
@@ -138,10 +136,10 @@ function take_info_function() {
         swrite = parseInt(document.getElementById("tcf2_writing").value) ;
     }
     else if (secondl === 0) {
-        sspeak = 0 ;
-        slisten = 0 ;
-        sread = 0 ;
-        swrite = 0 ;
+        sspeak = -1 ;
+        slisten = -1 ;
+        sread = -1 ;
+        swrite = -1 ;
     }
 
     var array = [document.getElementById("name").value,document.getElementById("email").value,document.getElementById("pN").value,document.getElementById("country").value, parseInt(document.getElementById("martial-status").value), parseInt(document.getElementById("spouse_canada").value), parseInt(document.getElementById("will_spouse_come").value), parseInt(document.getElementById("age").value), parseInt(document.getElementById("education").value), parseInt(document.getElementById("canadian_degree").value), parseInt(document.getElementById("canadian_degree_level").value), parseInt(document.getElementById("language_test").value), parseInt(document.getElementById("language_test_type").value),speak,listen,read,write,parseInt(document.getElementById("other_lang_test").value),sspeak,slisten,sread,swrite, parseInt(document.getElementById("work_exp").value), parseInt(document.getElementById("skilled_work").value), parseInt(document.getElementById("certificate_canada").value), parseInt(document.getElementById("labour_impact").value), parseInt(document.getElementById("NOC_TEER").value), parseInt(document.getElementById("nomination").value), parseInt(document.getElementById("living_canada").value), parseInt(document.getElementById("spouseeducation").value), parseInt(document.getElementById("spouse_canadian_degree").value), parseInt(document.getElementById("spouse_canadian_degree_level").value), parseInt(document.getElementById("spousework_exp").value), parseInt(document.getElementById("spouselanguage_test_type").value),window.data["crs_total"], window.data["federal_total"]] ;
