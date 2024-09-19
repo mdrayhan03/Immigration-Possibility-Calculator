@@ -1,6 +1,8 @@
-// const supabaseUrl = 'https://aidjhvfvbyudzrzduwag.supabase.co';
-// const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZGpodmZ2Ynl1ZHpyemR1d2FnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM1NTQ4NDAsImV4cCI6MjAzOTEzMDg0MH0.A7otTKYyjRPA7bVxgcFotw7UswxmWJytnzddYcZyLk4';
-// const base = supabase.createClient(supabaseUrl, supabaseKey);
+const selects = document.querySelectorAll('.selection');
+            
+            selects.forEach(select => {
+                select.disabled = true;
+            });
 
 async function select_email() {
   const response = await base.from("tb_calculation").select("id, email") ;
