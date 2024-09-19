@@ -217,14 +217,16 @@ function spouseclblevel(element) {
 }
 
 // Federal Skilled Worker Calculation
-clblevel = [0, 4, 5, 6]
-age = [2,3,4,5,6,7,8,9,10,11,12,12,12,12,12,12,12,12,12,0]
-work = [0,9,11,11,13,13,15]
-education = [0,5,15,19,21,22,23,25]
+let clblevel = [0, 4, 5, 6]
+let age = [2,3,4,5,6,7,8,9,10,11,12,12,12,12,12,12,12,12,12,0]
+let work = [0,9,11,11,13,13,15]
+let education = [0,5,15,19,21,22,23,25]
+
+var totalPoint = 0 ;
 
 function federal_skilled_workerCalculation() {
     let firstLanguagePoint = 0, secondLanguagePoint = 0, spouseLanguagePoint = 0, canadianstudyPoint = 0, spousecanadianstudyPoint = 0, canadianworkPoint = 0, spousecanadianworkPoint = 0, adaptablearrangePoint = 0, relativePoint = 0 ;
-    let languagePoint = 0, educationPoint = 0, work_expPoint = 0, agePoint = 0, arrangeworkPoint = 0, adaptabilityPoint = 0, totalPoint = 0 ;
+    let languagePoint = 0, educationPoint = 0, work_expPoint = 0, agePoint = 0, arrangeworkPoint = 0, adaptabilityPoint = 0 ;
 
     // first language 
     var d = firstclblevel(document.getElementById("language_test_type")) ;
@@ -347,10 +349,12 @@ let spousedegree = [0, 2, 6, 7, 8, 9, 10] ;
 let spousecanadianwork = [0, 5, 7, 8, 9, 10] ;
 let spouseclb = [0, 1, 3, 5]
 
+var total ;
+
 function crsCalculation() {
     let agePoint = 0, educationPoint = 0, canadianworkPoint = 0, canadianworkdegreePoint = 0, firstLanguageCLB, firstLanguagePoint = 0, secondLanguageCLB, secondLanguagePoint = 0, degreeclbPoint = 0, foreignworkclbPoint = 0, canadianforeignworkPoint = 0, certificatePoint = 0, residentPoint = 0, canadiandegreePoint = 0, jobofferPoint = 0, nominationPoint = 0, spousedegreePoint = 0, spousecanadianworkPoint = 0, spouseclbPoint = 0, spouseCLB, nclcPoint = 0, educationskillPoint = 0, foreignworkskillPoint = 0 ;
 
-    let humancore , spouse, skillfactors, additional, total;
+    let humancore , spouse, skillfactors, additional ;
     // marital status
     var value = parseInt(document.getElementById("martial-status").value) ;
 
@@ -685,6 +689,10 @@ function crsCalculation() {
 function mainCalculation() {
     crsCalculation() ;
     federal_skilled_workerCalculation() ;
+    window.data = {
+        "crs_total" : total ,
+        "federal_total" : totalPoint ,
+    }
 }
 
 languageL = ["","CELPIP-G", "IELTS", "PTE CORE", "TEF Canada", "TCF Canada"] ;

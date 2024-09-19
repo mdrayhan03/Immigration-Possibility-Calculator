@@ -297,4 +297,8 @@ function suggestion_show_Function() {
 
 }
 
+function booking_Function() {
+    window.open('https://immizen.ca/consultation-booking/', '_blank');
+}
+
 // ---------------------------transition function end------------------------------ //
