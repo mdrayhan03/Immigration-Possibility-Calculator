@@ -305,4 +305,37 @@ function booking_Function() {
     window.open(' https://tidycal.com/sajid/discounted-crs-assessment', '_blank');
 }
 
+var q_cnt = 0
+// 15=6.66 11=9.09
+var progress_bar = 0 ;
+function progress_Function(element) {
+    var value = parseInt(document.getElementById("will_spouse_come").value) ;
+    var progress = document.getElementsByClassName("progressbar")[0]
+        
+    if (parseInt(element.value) != -1) {
+        if (value === 2) {            
+            q_cnt += 1 ;
+            progress_bar = q_cnt * 6.66 ;
+        }
+        else {
+            q_cnt += 1 ;
+            progress_bar = q_cnt * 9.09 ;
+        }
+        progress.style.width = progress_bar + "%" ;
+    }
+    
+    else {
+        if (value === 2) {            
+            q_cnt -= 1 ;
+            progress_bar = q_cnt * 6.66 ;
+        }
+        else {
+            q_cnt -= 1 ;
+            progress_bar = q_cnt * 9.09 ;
+        }
+        progress.style.width = progress_bar + "%" ;
+    }
+    console.log("Width: "+progress_bar+"%");
+}
+
 // ---------------------------transition function end------------------------------ //

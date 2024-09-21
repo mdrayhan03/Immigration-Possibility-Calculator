@@ -658,7 +658,7 @@ function crsCalculation() {
     total = humancore+spouse+skillfactors+additional ;
 
     var output = document.getElementsByClassName("output")[0] ;
-    var text = "<h1>All Express Entry candidates get a score "+total+" out of 1,200, based on the four parts of the Comprehensive Ranking System formula.</br>" ;
+    var text = "All Express Entry candidates get a score out of 1,200, based on the four parts of the Comprehensive Ranking System formula.</br></br><b>Your score is "+total+" points.</b></br></br>Having a higher score increases the chances of getting the invitation to apply for PR (Permanent Residency)</br>" ;
             //    "<h2>A.Human Core : "+humancore+"</br>"+
             //    "<h3>Age : "+agePoint+"</br>"+
             //    "<h3>Education : "+educationPoint+"</br>"+
@@ -694,6 +694,130 @@ function mainCalculation() {
         "federal_total" : 0 ,
     }
 }
+
+// function getLanguageScoreIncrease(testType, listening, reading, writing, speaking) {
+//     let improvements = [];
+//     let additionalPoints = 0;
+
+//     switch (testType) {
+//         case "IELTS":
+//             if (listening < 9) {
+//                 additionalPoints += (9 - listening) * 3; // Adjust the points calculation as per your logic
+//                 improvements.push("Improving your IELTS Listening Band to 9 will increase your score.");
+//             }
+//             if (reading < 9) {
+//                 additionalPoints += (9 - reading) * 2;
+//                 improvements.push("Improving your IELTS Reading Band to 9 will increase your score.");
+//             }
+//             if (writing < 9) {
+//                 additionalPoints += (9 - writing) * 2;
+//                 improvements.push("Improving your IELTS Writing Band to 9 will increase your score.");
+//             }
+//             if (speaking < 9) {
+//                 additionalPoints += (9 - speaking) * 2;
+//                 improvements.push("Improving your IELTS Speaking Band to 9 will increase your score.");
+//             }
+//             break;
+
+//         case "CELPIP-G":
+//             if (listening < 10) {
+//                 additionalPoints += (10 - listening) * 3;
+//                 improvements.push("Improving your CELPIP Listening Band to 10 will increase your score.");
+//             }
+//             if (reading < 10) {
+//                 additionalPoints += (10 - reading) * 2;
+//                 improvements.push("Improving your CELPIP Reading Band to 10 will increase your score.");
+//             }
+//             if (writing < 10) {
+//                 additionalPoints += (10 - writing) * 2;
+//                 improvements.push("Improving your CELPIP Writing Band to 10 will increase your score.");
+//             }
+//             if (speaking < 10) {
+//                 additionalPoints += (10 - speaking) * 2;
+//                 improvements.push("Improving your CELPIP Speaking Band to 10 will increase your score.");
+//             }
+//             break;
+
+//         case "PTE":
+//             if (listening < 90) {
+//                 additionalPoints += (90 - listening) * 2; // Customize the points logic based on PTE scoring
+//                 improvements.push("Improving your PTE Listening score to 90 will increase your score.");
+//             }
+//             if (reading < 90) {
+//                 additionalPoints += (90 - reading) * 2;
+//                 improvements.push("Improving your PTE Reading score to 90 will increase your score.");
+//             }
+//             if (writing < 90) {
+//                 additionalPoints += (90 - writing) * 2;
+//                 improvements.push("Improving your PTE Writing score to 90 will increase your score.");
+//             }
+//             if (speaking < 90) {
+//                 additionalPoints += (90 - speaking) * 2;
+//                 improvements.push("Improving your PTE Speaking score to 90 will increase your score.");
+//             }
+//             break;
+
+//         case "TEF Canada":
+//             if (listening < 360) {
+//                 additionalPoints += (360 - listening) * 0.1; // Adjust to reflect TEF scoring system
+//                 improvements.push("Improving your TEF Listening score to 360 will increase your score.");
+//             }
+//             if (reading < 300) {
+//                 additionalPoints += (300 - reading) * 0.1;
+//                 improvements.push("Improving your TEF Reading score to 300 will increase your score.");
+//             }
+//             if (writing < 450) {
+//                 additionalPoints += (450 - writing) * 0.1;
+//                 improvements.push("Improving your TEF Writing score to 450 will increase your score.");
+//             }
+//             if (speaking < 450) {
+//                 additionalPoints += (450 - speaking) * 0.1;
+//                 improvements.push("Improving your TEF Speaking score to 450 will increase your score.");
+//             }
+//             break;
+
+//         case "TCF Canada":
+//             if (listening < 699) {
+//                 additionalPoints += (699 - listening) * 0.1; // Adjust to reflect TCF scoring system
+//                 improvements.push("Improving your TCF Listening score to 699 will increase your score.");
+//             }
+//             if (reading < 699) {
+//                 additionalPoints += (699 - reading) * 0.1;
+//                 improvements.push("Improving your TCF Reading score to 699 will increase your score.");
+//             }
+//             if (writing < 20) {
+//                 additionalPoints += (20 - writing) * 0.1;
+//                 improvements.push("Improving your TCF Writing score to 20 will increase your score.");
+//             }
+//             if (speaking < 20) {
+//                 additionalPoints += (20 - speaking) * 0.1;
+//                 improvements.push("Improving your TCF Speaking score to 20 will increase your score.");
+//             }
+//             break;
+//     }
+
+//     return { improvements, additionalPoints };
+// }
+
+// function suggestionFunction(total) {
+//     let testType = document.getElementById("language_test_type").value;
+//     let listening = parseFloat(document.getElementById('${testType.toLowerCase()}_listening').value);
+//     let reading = parseFloat(document.getElementById("${testType.toLowerCase()}_reading").value);
+//     let writing = parseFloat(document.getElementById("${testType.toLowerCase()}_writing").value);
+//     let speaking = parseFloat(document.getElementById("${testType.toLowerCase()}_speaking").value);
+
+//     let result = getLanguageScoreIncrease(testType, listening, reading, writing, speaking);
+
+//     let element = document.getElementsByClassName("suggestion-output")[0];
+//     let text = '<p><b>Current CRS Score:</b> ${total} points</p>';
+//     text += '<p><b>Potential Improvements:</b></p>';
+//     result.improvements.forEach(improvement => {
+//         text += '<p>${improvement}</p>';
+//     });
+//     text += '<p><b>Total CRS Score After Improvements:</b> ${newTotal} points</p>';
+
+//     element.innerHTML = text;
+// }
 
 languageL = ["","CELPIP-G", "IELTS", "PTE CORE", "TEF Canada", "TCF Canada"] ;
 function suggestionFunction (total, fclb, fclbpoint) {
@@ -767,7 +891,7 @@ function suggestionFunction (total, fclb, fclbpoint) {
         s = true ;
         stext += firstLanguage[0];
     }
-    stext += " Band to 9 will add additional points.</td>" ;
+    stext += " Band to highest score will add additional points.</td>" ;
     var ftotal = 0 ;
     for (let i=0; i<firstLanguagePoint.length;i++) {
         ftotal += firstLanguagePoint[i] ;

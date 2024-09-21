@@ -16,21 +16,34 @@
   </head>
   <body>
     <div class="logo">
-      <div class="logo-img">
-        <img src="assets/media/logo.png" alt="">
+      <div class="part-one">
+        <!-- <div class="logo-img">
+          <img src="assets/media/logo.png" alt="">
+        </div>
+        <div class="text">
+          <h1>IMMIGRATION POSSIBILITY CALCULATOR</h1>
+        </div> -->
+        <img src="assets/media/banner.png" alt="">
+      </div>
+      <div class="progress-part">
+        <span id="progressQUE"></span>
+        <div class="progress">
+          <div class="progressbar"></div>          
+        </div>
       </div>
     </div>
     <div class="all">
       <div class="body-container">
         <!-- single or married & spouse will come or not -->
         <div class="question q1">
-          <h2>1. What is your marital status</h2>
+          <h2>Personal Information</h2>
+          <h3>1. What is your marital status</h3>
           <!-- q2.i will appear if someone select class="selection" common law and married -->
           <select
             class="selection"
             id="martial-status"
             name="marital_status"
-            onchange="q1function(this)"
+            onchange="q1function(this); (this)"
           >
             <option selected value="-1">Select your marital status</option>
             <option value="1">Annulled Marriage</option>
@@ -43,15 +56,15 @@
           </select>
         </div>
         <div class="question q2_1">
-          <h2>
-            2. i. Is your spouse or common-law partner a citizen or permanent
+          <h3>
+            2.A) Is your spouse or common-law partner a citizen or permanent
             resident of Canada?
-          </h2>
+          </h3>
           <select
             class="selection"
             id="spouse_canada"
             name="spouse_canada"
-            onchange="q2_1function(this)"
+            onchange="q2_1function(this);(this)"
           >
             <option selected value="-1">Select</option>
             <!-- if someone selects no then 2.ii will appear -->
@@ -60,15 +73,15 @@
           </select>
         </div>
         <div class="question q2_2">
-          <h2>
-            2. ii. Will your spouse or common-law partner come with you to
+          <h3>
+            2.B) Will your spouse or common-law partner come with you to
             Canada?
-          </h2>
+          </h3>
           <select
             class="selection"
             id="will_spouse_come"
             name="will_spouse_come"
-            onchange="commonfunction(this, document.getElementsByClassName('q3')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q3')[0]);(this)"
           >
             <option selected value="-1">Select</option>
             <option value="1">No</option>
@@ -77,12 +90,12 @@
         </div>
         <!-- client personal info -->
         <div class="question q3">
-          <h2>3. How old are you?</h2>
+          <h3>3. How old are you?</h3>
           <select
             class="selection"
             id="age"
             name="age"
-            onchange="commonfunction(this, document.getElementsByClassName('q4_1')[0])"            
+            onchange="commonfunction(this, document.getElementsByClassName('q4_1')[0]);progress_Function(this)"            
           >
             <option selected value="-1">Select your age</option>
             <option value="19">17 years of age or less</option>
@@ -109,8 +122,9 @@
         </div>
 
         <div class="question q4_1">
-          <h2>4. What is your level of education?</h2>
-          <select class="selection" id="education" name="education" onchange="commonfunction(this, document.getElementsByClassName('q4_2')[0])">
+          <h2>Educational Information</h2>
+          <h3>4. What is your level of education?</h3>
+          <select class="selection" id="education" name="education" onchange="commonfunction(this, document.getElementsByClassName('q4_2')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="0">None or less than secondary(high school)</option>
             <option value="1">Secondary Diploma (high school graduation)</option>
@@ -139,10 +153,10 @@
         </div>
 
         <div class="question q4_2">
-          <h2>
-            4. ii. Have you earned a Canadian degree, diploma or certificate?
-          </h2>
-          <select class="selection" id="canadian_degree" name="canadian_degree" onchange="q4_2function(this)">
+          <h3>
+            5.A). Have you earned a Canadian degree, diploma or certificate?
+          </h3>
+          <select class="selection" id="canadian_degree" name="canadian_degree" onchange="q4_2function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>            
             <option value="2">No</option>
             <option value="1">Yes</option>
@@ -151,14 +165,14 @@
         <!-- if someone selectes yes then 4c will appear -->
 
         <div class="question q4_3">
-          <h2>
-            4. iii. Choose the best answer to describe this level of education.
-          </h2>
+          <h3>
+            5.B). Choose the best answer to describe this level of education.
+          </h3>
           <select
             class="selection"
             id="canadian_degree_level"
             name="canadian_degree_level"
-            onchange="commonfunction(this, document.getElementsByClassName('q5_2')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q5_2')[0]);"
           >
             <option selected value="-1">Select..</option>
             <option value="0">Secondary (high school) or less</option>
@@ -171,33 +185,35 @@
           </select>
         </div>
         <!-- language proficiency -->
-        <div class="question q5">
-          <h2>i. Are your test results less than two years old?</h2>
+        <!-- <div class="question q5">          
+          <h3>i. Are your test results less than two years old?</h3>
           <select class="selection" id="language_test" name="language_test" onchange="q5function(this)">
             <option selected value="-1">Select..</option>
             <option value="2">No</option>
             <option value="1">Yes</option>
           </select>
-        </div>
+        </div> -->
         <!-- if someone selects they will no longer be able to continue the application -->
         <div class="question q5_2">
-          <h2>
-            5. Official languages: Canada's official languages are English and
+          <h2>Language Proficiency</h2>
+          <h3>
+            Canada's official languages are English and
             French.
-          </h2></br>
-          <h2>
+          </h3></br>
+          <h3>
             You need to submit language test results that are less than two
             years old for all programs under Express Entry, even if English or
             French is your first language.
-          </h2></br>
-          <h2>
-            ii. Which language test did you take or will you take for your first official language?
-          </h2>
+          </h3></br>
+          <h3> <strong>Enter your current or expected scores.</strong> </h3>
+          <h3>
+            6. Which language test did you take or will you take for your first official language?
+          </h3>
           <select
             class="selection"
             id="language_test_type"
             name="language_test_type"
-            onchange="q5_2function(this)"
+            onchange="q5_2function(this);progress_Function(this)"
           >
             <option selected value="-1">Select..</option>
             <option value="1">CELPIP-G</option>
@@ -261,12 +277,7 @@
             <option value="0">M, 0-3</option>
           </select>
           <h3>Writing</h3>
-          <select
-            class="selection"
-            id="celplp-g_writing"
-            name="celpip-g_writing"
-            onchange="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
-          >
+          <select class="selection" id="celplp-g_writing" name="celpip-g_writing" onchange="q5_2_extend(document.getElementById('celplp-g_speaking'),document.getElementById('celplp-g_listening'),document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))">
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
             <option value="9">9</option>
@@ -480,8 +491,8 @@
         </div>
         <!-- second france language info -->
         <div class="question q5_3">
-          <h2>iii. Do you have other language results?</h2>
-          <select class="selection" id="other_lang_test" name="other_lang_test" onchange="q5_3function(this)">
+          <h3>7. Do you have other language results?</h3>
+          <select class="selection" id="other_lang_test" name="other_lang_test" onchange="q5_3function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="4">TEF Canada</option>
             <option value="5">TCF Canada</option>
@@ -590,12 +601,12 @@
         </div>
         <!-- work experience -->
         <div class="question q6">
-          <h2>6. Work Experience</h2>
+          <h2> Work Experience</h2>
           <h3>
-            i. In the last ten years, how many years of skilled work experience
+            8. In the last ten years, how many years of skilled work experience
             in Canada do you have?
           </h3>
-  <select class="selection" id="work_exp" name="work_exp" onchange="commonfunction(this, document.getElementsByClassName('q6_2')[0])">
+  <select class="selection" id="work_exp" name="work_exp" onchange="commonfunction(this, document.getElementsByClassName('q6_2')[0]);progress_Function(this)">
             <option selected value="-1">Select...</option>
             <option value="0">None or less than a year</option>
             <option value="1">1 year</option>
@@ -608,10 +619,10 @@
         </div>
         <div class="question q6_2">
           <h3>
-            ii. In the last 10 years, how many total years of foreign skilled
+            9.In the last 10 years, how many total years of foreign skilled
             work experience do you have?
           </h3>
-          <select class="selection" id="skilled_work" name="skilled_work" onchange="commonfunction(this, document.getElementsByClassName('q7')[0])">
+          <select class="selection" id="skilled_work" name="skilled_work" onchange="commonfunction(this, document.getElementsByClassName('q7')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="0">None or less than a year</option>
             <option value="1">1 year</option>
@@ -620,15 +631,16 @@
           </select>
         </div>
         <div class="question q7">
-          <h2>
-            7) Do you have a certificate of qualification from a Canadian
+          <h2>Additional Information</h2>
+          <h3>
+            10. Do you have a certificate of qualification from a Canadian
             province, territory or federal body?
-          </h2>
+          </h3>
           <select
             class="selection"
             id="certificate_canada"
             name="certificate_canada"
-            onchange="commonfunction(this, document.getElementsByClassName('q8')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q8')[0]);progress_Function(this)"
           >
             <option selected value="-1">Select..</option>
             <option value="1">No</option>
@@ -637,11 +649,11 @@
         </div>
         <!-- additional_points start here -->
         <div class="question q8">
-          <h2>
-            8) Do you have a valid job offer supported by a Labour Market
+          <h3>
+            11.A) Do you have a valid job offer supported by a Labour Market
             Impact Assessment (if needed)?
-          </h2>
-          <select class="selection" id="labour_impact" name="labour_impact" onchange="q8function(this)">
+          </h3>
+          <select class="selection" id="labour_impact" name="labour_impact" onchange="q8function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
@@ -649,8 +661,8 @@
         </div>
         <!-- if someone selects yes the following options will appear -->
         <div class="question q8_1">
-          <h2>8a) Which NOC TEER is the job offer?</h2>
-          <select class="selection" id="NOC_TEER" name="NOC_TEER" onchange="commonfunction(this, document.getElementsByClassName('q9')[0])">
+          <h3>11.B) Which NOC TEER is the job offer?</h3>
+          <select class="selection" id="NOC_TEER" name="NOC_TEER" onchange="commonfunction(this, document.getElementsByClassName('q9')[0]);(this)">
             <option selected value="-1">Select..</option>
             <option value="1">NOC TEER 0 Major group 00</option>
             <option value="2">
@@ -660,23 +672,23 @@
           </select>
         </div>
         <div class="question q9">
-          <h2>
-            9) Do you have a nomination certificate from a province or
+          <h3>
+            12. Do you have a nomination certificate from a province or
             territory?
-          </h2>
-          <select class="selection" name="nomination" id="nomination" onchange="commonfunction(this, document.getElementsByClassName('q10')[0])">
+          </h3>
+          <select class="selection" name="nomination" id="nomination" onchange="commonfunction(this, document.getElementsByClassName('q10')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
           </select>
         </div>
         <div class="question q10">
-          <h2>
-            10) Do you or your spouse or common law partner (if they will come
+          <h3>
+            13. Do you or your spouse or common law partner (if they will come
             with you to Canada) have at least one brother or sister living in
             Canada who is a citizen or permanent resident?
-          </h2>
-          <select class="selection" name="living_canada" id="living_canada" onchange="q10function(this)">
+          </h3>
+          <select class="selection" name="living_canada" id="living_canada" onchange="q10function(this);progress_Function(this)">
             <option selected value="-1">Select...</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
@@ -685,8 +697,8 @@
         <!-- spouse info -->
         <div class="question q11">
           <h2>Spouse Information</h2>
-          <h2>11. What is the highest level of education for which your spouse or common-law partner's has?</h2>
-          <select class="selection" id="spouseeducation" name="spouseeducation" onchange="commonfunction(this, document.getElementsByClassName('q11-1')[0])">
+          <h3>14. What is the highest level of education for which your spouse or common-law partner's has?</h3>
+          <select class="selection" id="spouseeducation" name="spouseeducation" onchange="commonfunction(this, document.getElementsByClassName('q11-1')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="0">None or less than secondary(high school)</option>
             <option value="1">Secondary Diploma (high school graduation)</option>
@@ -714,17 +726,17 @@
           </select>
         </div>
         <div class="question q11-1">
-          <h2>11. ii. Have your spouse earned a Canadian degree, diploma or certificate?</h2>
-          <select class="selection" id="spouse_canadian_degree" name="spouse_canadian_degree" onchange="q11_1function(this)">
+          <h3>15.A) Have your spouse earned a Canadian degree, diploma or certificate?</h3>
+          <select class="selection" id="spouse_canadian_degree" name="spouse_canadian_degree" onchange="q11_1function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>            
             <option value="2">No</option>
             <option value="1">Yes</option>
           </select>
         </div>
         <div class="question q11-2">
-          <h2>
-            11. iii. Choose the best answer to describe this level of education.
-          </h2>
+          <h3>
+            15.B) Choose the best answer to describe this level of education.
+          </h3>
           <select
             class="selection"
             id="spouse_canadian_degree_level"
@@ -742,8 +754,8 @@
           </select>
         </div>
         <div class="question q12">
-          <h2>12. In the last ten years, how many years of skilled work experience in Canada does your spouse/common-law partner have?</h2>
-          <select class="selection" id="spousework_exp" name="spousework_exp" onchange="commonfunction(this, document.     getElementsByClassName('q13')[0])">
+          <h3>16. In the last ten years, how many years of skilled work experience in Canada does your spouse/common-law partner have?</h3>
+          <select class="selection" id="spousework_exp" name="spousework_exp" onchange="commonfunction(this, document.getElementsByClassName('q13')[0]);progress_Function(this)">
             <option selected value="-1">Select...</option>
             <option value="0">None or less than a year</option>
             <option value="1">1 year</option>
@@ -754,15 +766,15 @@
           </select>
         </div>
         <div class="question q13">
-          <h2>
-            13. Did or will your spouse or common-law partner take a language test? If so, which one?
+          <h3>
+            17. Did or will your spouse or common-law partner take a language test? If so, which one?
             
-          </h2>
+          </h3>
           <select
             class="selection"
             id="spouselanguage_test_type"
             name="spouselanguage_test_type"
-            onchange="q13function(this)"
+            onchange="q13function(this);progress_Function(this)"
           >
             <option selected value="-1">Select..</option>
             <option value="1">CELPIP-G</option>
