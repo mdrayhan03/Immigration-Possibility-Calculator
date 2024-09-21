@@ -21,18 +21,18 @@ async function is_connected(email) {
 
     if (response.error) {
         console.error("Error", response.error) ;
-        return 0 ;
+        return false ;
     }
     else if (response.data.length === 0) {
-        return 1 ;
+        return true ;
     }
     else {
-        return 0 ;
+        return false ;
     }
 }
 
 async function insert_data(array) {
-    const resp = await is_connected(email) ;
+    const resp = await is_connected(array[1]) ;
     console.log(resp) ;
     if (resp) {
         base.from('tb_calculation')
