@@ -89,7 +89,7 @@ function second_language (value, speak, listen, read, write) {
 }
 
 async function select_user(id) {
-  console.log(id) ;
+  console.log("ID: "+id) ;
   const response = await base.from("tb_calculation").select("*").eq("id", id) ;
 
   const array = Object.values(response.data[0]) ;
@@ -107,7 +107,7 @@ async function select_user(id) {
   document.getElementById("education").value = array[9] ;
   document.getElementById("canadian_degree").value = array[10] ;
   document.getElementById("canadian_degree_level").value = array[11] ;
-  document.getElementById("language_test").value = array[12] ;
+  // document.getElementById("language_test").value = array[12] ;
   document.getElementById("language_test_type").value = array[13] ;
   first_language(array[13],array[14], array[15], array[16], array[17]) ;
   document.getElementById("other_lang_test").value = array[18] ;

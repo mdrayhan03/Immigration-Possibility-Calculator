@@ -16,22 +16,35 @@
   </head>
   <body>
     <style>
-        .question {
+        .question{
           max-height: 0px;
         }
+        .selection {
+          color:black
+        }
         .button {
-          margin: 0px;
+          margin: auto;
+          display: block;
+        }
+        .query_taker {
+          display: flex;
         }
     </style>
     <div class="logo">
-      <div class="logo-img">
-        <img src="assets/media/logo.png" alt="">
+      <div class="part-one">
+        <img src="assets/media/banner.png" alt="">
       </div>
+      <!-- <div class="progress-part">
+        <span id="progressQUE"></span>
+        <div class="progress">
+          <div class="progressbar"></div>          
+        </div>
+      </div> -->
     </div>
     <div class="all">
       <div class="body-container">
-        <div class="query_taker">
-          <h2>Select user email</h2>
+        <h3>Select user email</h3>
+        <div class="query_taker">          
           <select class="selection" name="" id="user_email_select">
             <option value="-1" selected>Select..</option>
           </select>
@@ -39,23 +52,24 @@
         </div>
         <!-- single or married & spouse will come or not -->
         <div class="personal_info">
-          <h2>User Name</h2>
+          <h3>User Name</h3>
           <input class="selection" type="text" id="name" placeholder="user name">
-          <h2>User Email</h2>
+          <h3>User Email</h3>
           <input class="selection" type="text" id="email" placeholder="user email">
-          <h2>User Country</h2>
+          <h3>User Country</h3>
           <input class="selection" type="text" id="country" placeholder="user country">
-          <h2>User Phone no</h2>
+          <h3>User Phone no</h3>
           <input class="selection" type="text" id="pN" placeholder="user phone no">
         </div>
         <div class="q1">
-          <h2>1. What is your marital status</h2>
+          <h2>Personal Information</h2>
+          <h3>1. What is your marital status</h3>
           <!-- q2.i will appear if someone select class="selection" common law and married -->
           <select
             class="selection"
             id="martial-status"
             name="marital_status"
-            onclick="q1function(this)"
+            onchange="q1function(this); (this)"
           >
             <option selected value="-1">Select your marital status</option>
             <option value="1">Annulled Marriage</option>
@@ -68,46 +82,46 @@
           </select>
         </div>
         <div class="q2_1">
-          <h2>
-            2. i. Is your spouse or common-law partner a citizen or permanent
+          <h3>
+            2.A) Is your spouse or common-law partner a citizen or permanent
             resident of Canada?
-          </h2>
+          </h3>
           <select
             class="selection"
             id="spouse_canada"
             name="spouse_canada"
-            onclick="q2_1function(this)"
+            onchange="q2_1function(this);(this)"
           >
-            <option selected value="-1">Select..</option>
+            <option selected value="-1">Select</option>
             <!-- if someone selects no then 2.ii will appear -->
             <option value="2">No</option>
             <option value="1">Yes</option>
           </select>
         </div>
         <div class="q2_2">
-          <h2>
-            2. ii. Will your spouse or common-law partner come with you to
+          <h3>
+            2.B) Will your spouse or common-law partner come with you to
             Canada?
-          </h2>
+          </h3>
           <select
             class="selection"
             id="will_spouse_come"
             name="will_spouse_come"
-            onclick="commonfunction(this, document.getElementsByClassName('q3')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q3')[0]);(this)"
           >
-            <option selected value="-1">Select..</option>
+            <option selected value="-1">Select</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
           </select>
         </div>
         <!-- client personal info -->
         <div class="q3">
-          <h2>3. How old are you?</h2>
+          <h3>3. How old are you?</h3>
           <select
             class="selection"
             id="age"
             name="age"
-            onclick="commonfunction(this, document.getElementsByClassName('q4_1')[0])"            
+            onchange="commonfunction(this, document.getElementsByClassName('q4_1')[0]);progress_Function(this)"            
           >
             <option selected value="-1">Select your age</option>
             <option value="19">17 years of age or less</option>
@@ -134,8 +148,9 @@
         </div>
 
         <div class="q4_1">
-          <h2>4. What is your level of education?</h2>
-          <select class="selection" id="education" name="education" onclick="commonfunction(this, document.getElementsByClassName('q4_2')[0])">
+          <h2>Educational Information</h2>
+          <h3>4. What is your level of education?</h3>
+          <select class="selection" id="education" name="education" onchange="commonfunction(this, document.getElementsByClassName('q4_2')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="0">None or less than secondary(high school)</option>
             <option value="1">Secondary Diploma (high school graduation)</option>
@@ -164,10 +179,10 @@
         </div>
 
         <div class="q4_2">
-          <h2>
-            4. ii. Have you earned a Canadian degree, diploma or certificate?
-          </h2>
-          <select class="selection" id="canadian_degree" name="canadian_degree" onclick="q4_2function(this)">
+          <h3>
+            5.A). Have you earned a Canadian degree, diploma or certificate?
+          </h3>
+          <select class="selection" id="canadian_degree" name="canadian_degree" onchange="q4_2function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>            
             <option value="2">No</option>
             <option value="1">Yes</option>
@@ -176,14 +191,14 @@
         <!-- if someone selectes yes then 4c will appear -->
 
         <div class="q4_3">
-          <h2>
-            4. iii. Choose the best answer to describe this level of education.
-          </h2>
+          <h3>
+            5.B). Choose the best answer to describe this level of education.
+          </h3>
           <select
             class="selection"
             id="canadian_degree_level"
             name="canadian_degree_level"
-            onclick="commonfunction(this, document.getElementsByClassName('q5')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q5_2')[0]);"
           >
             <option selected value="-1">Select..</option>
             <option value="0">Secondary (high school) or less</option>
@@ -196,34 +211,35 @@
           </select>
         </div>
         <!-- language proficiency -->
-        <div class="q5">
-          <h2>
-            5. Official languages: Canada's official languages are English and
-            French.
-          </h2>
-          <h2>
-            You need to submit language test results that are less than two
-            years old for all programs under Express Entry, even if English or
-            French is your first language.
-          </h2>
-          <h2>i. Are your test results less than two years old?</h2>
-          <select class="selection" id="language_test" name="language_test" onclick="q5function(this)">
+        <!-- <div class="q5">          
+          <h3>i. Are your test results less than two years old?</h3>
+          <select class="selection" id="language_test" name="language_test" onchange="q5function(this)">
             <option selected value="-1">Select..</option>
             <option value="2">No</option>
             <option value="1">Yes</option>
           </select>
-        </div>
+        </div> -->
         <!-- if someone selects they will no longer be able to continue the application -->
         <div class="q5_2">
-          <h2>
-            ii. Which language test did you take for your first official
-            language?
-          </h2>
+          <h2>Language Proficiency</h2>
+          <h3>
+            Canada's official languages are English and
+            French.
+          </h3></br>
+          <h3>
+            You need to submit language test results that are less than two
+            years old for all programs under Express Entry, even if English or
+            French is your first language.
+          </h3></br>
+          <h3> <strong>Enter your current or expected scores.</strong> </h3>
+          <h3>
+            6. Which language test did you take or will you take for your first official language?
+          </h3>
           <select
             class="selection"
             id="language_test_type"
             name="language_test_type"
-            onclick="q5_2function(this)"
+            onchange="q5_2function(this);progress_Function(this)"
           >
             <option selected value="-1">Select..</option>
             <option value="1">CELPIP-G</option>
@@ -240,7 +256,7 @@
             class="selection"
             id="celplp-g_speaking"
             name="celpip-g_speaking"
-            onclick="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
+            onchange="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -257,7 +273,7 @@
             class="selection"
             id="celplp-g_listening"
             name="celpip-g_listening"
-            onclick="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
+            onchange="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -274,7 +290,7 @@
             class="selection"
             id="celplp-g_reading"
             name="celpip-g_reading"
-            onclick="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
+            onchange="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -287,12 +303,7 @@
             <option value="0">M, 0-3</option>
           </select>
           <h3>Writing</h3>
-          <select
-            class="selection"
-            id="celplp-g_writing"
-            name="celpip-g_writing"
-            onclick="q5_2_extend(document.getElementById('celplp-g_speaking'), document.getElementById('celplp-g_listening'), document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))"
-          >
+          <select class="selection" id="celplp-g_writing" name="celpip-g_writing" onchange="q5_2_extend(document.getElementById('celplp-g_speaking'),document.getElementById('celplp-g_listening'),document.getElementById('celplp-g_reading'),document.getElementById('celplp-g_writing'))">
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
             <option value="9">9</option>
@@ -306,7 +317,7 @@
         </div>
         <div class="question q5_IELTS">
           <h3>Speaking</h3>
-          <select class="selection" id="ielts_speaking" name="ielts_speaking" onclick="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
+          <select class="selection" id="ielts_speaking" name="ielts_speaking" onchange="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="7.5">7.5-9.0</option>
             <option value="7">7.0</option>
@@ -318,7 +329,7 @@
             <option value="0">0-3.5</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="ielts_listening" name="ielts_listening" onclick="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
+          <select class="selection" id="ielts_listening" name="ielts_listening" onchange="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="8.5">8.5-9.0</option>
             <option value="8">8.0</option>
@@ -330,7 +341,7 @@
             <option value="0">0-4.0</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="ielts_reading" name="ielts_reading" onclick="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
+          <select class="selection" id="ielts_reading" name="ielts_reading" onchange="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="8">8-9</option>
             <option value="7">7.0-7.5</option>
@@ -342,7 +353,7 @@
             <option value="0">0-3.0</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="ielts_writing" name="ielts_writing" onclick="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
+          <select class="selection" id="ielts_writing" name="ielts_writing" onchange="q5_2_extend(document.getElementById('ielts_speaking'), document.getElementById('ielts_listening'), document.getElementById('ielts_reading'),document.getElementById('ielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="7.5">7.5-9.0</option>
             <option value="7">7.0</option>
@@ -356,7 +367,7 @@
         </div>
         <div class="question q5_PTECORE">
           <h3>Speaking</h3>
-          <select class="selection" id="ptecore_speaking" name="ptecore_speaking" onclick="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
+          <select class="selection" id="ptecore_speaking" name="ptecore_speaking" onchange="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="90">89-90</option>
             <option value="88">84-88</option>
@@ -368,7 +379,7 @@
             <option value="41">0-41</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="ptecore_listening" name="ptecore_listening"onclick="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
+          <select class="selection" id="ptecore_listening" name="ptecore_listening"onchange="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="90">89-90</option>
             <option value="88">82-88</option>
@@ -380,7 +391,7 @@
             <option value="27">0-27</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="ptecore_reading" name="ptecore_reading"onclick="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
+          <select class="selection" id="ptecore_reading" name="ptecore_reading"onchange="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="88">88-90</option>
             <option value="87">78-87</option>
@@ -392,7 +403,7 @@
             <option value="32">0-32</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="ptecore_writing" name="ptecore_writing"onclick="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
+          <select class="selection" id="ptecore_writing" name="ptecore_writing"onchange="q5_2_extend(document.getElementById('ptecore_speaking'), document.getElementById('ptecore_listening'), document.getElementById('ptecore_reading'),document.getElementById('ptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="90">90</option>
             <option value="89">88-89</option>
@@ -406,7 +417,7 @@
         </div>
         <div class="question q5_TEF">
           <h3>Speaking</h3>
-          <select class="selection" id="tef_speaking" name="tef_speaking" onclick="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
+          <select class="selection" id="tef_speaking" name="tef_speaking" onchange="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="450">393-450</option>
             <option value="392">371-392</option>
@@ -418,7 +429,7 @@
             <option value="180">0-180</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="tef_listening" name="tef_listening" onclick="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
+          <select class="selection" id="tef_listening" name="tef_listening" onchange="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="360">316-360</option>
             <option value="315">298-315</option>
@@ -430,7 +441,7 @@
             <option value="144">0-144</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="tef_reading" name="tef_reading" onclick="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
+          <select class="selection" id="tef_reading" name="tef_reading" onchange="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="300">263-300</option>
             <option value="262">248-262</option>
@@ -442,7 +453,7 @@
             <option value="120">0-120</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="tef_writing" name="tef_writing" onclick="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
+          <select class="selection" id="tef_writing" name="tef_writing" onchange="q5_2_extend(document.getElementById('tef_speaking'), document.getElementById('tef_listening'), document.getElementById('tef_reading'),document.getElementById('tef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="450">393-450</option>
             <option value="392">371-392</option>
@@ -456,7 +467,7 @@
         </div>
         <div class="question q5_TCF">
           <h3>Speaking</h3>
-          <select class="selection" id="tcf_speaking" name="tcf_speaking" onclick="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
+          <select class="selection" id="tcf_speaking" name="tcf_speaking" onchange="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="20">16-20</option>
             <option value="15">14-15</option>
@@ -468,7 +479,7 @@
             <option value="3">0-3</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="tcf_listening" name="tcf_listening" onclick="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
+          <select class="selection" id="tcf_listening" name="tcf_listening" onchange="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">523-548</option>
@@ -480,7 +491,7 @@
             <option value="330">0-330</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="tcf_reading" name="tcf_reading" onclick="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
+          <select class="selection" id="tcf_reading" name="tcf_reading" onchange="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">524-548</option>
@@ -492,7 +503,7 @@
             <option value="341">0-341</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="tcf_writing" name="tcf_writing" onclick="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
+          <select class="selection" id="tcf_writing" name="tcf_writing" onchange="q5_2_extend(document.getElementById('tcf_speaking'), document.getElementById('tcf_listening'), document.getElementById('tcf_reading'),document.getElementById('tcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="20">16-20</option>
             <option value="15">14-15</option>
@@ -506,8 +517,8 @@
         </div>
         <!-- second france language info -->
         <div class="q5_3">
-          <h2>iii. Do you have other language results?</h2>
-          <select class="selection" id="other_lang_test" name="other_lang_test" onclick="q5_3function(this)">
+          <h3>7. Do you have other language results?</h3>
+          <select class="selection" id="other_lang_test" name="other_lang_test" onchange="q5_3function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="4">TEF Canada</option>
             <option value="5">TCF Canada</option>
@@ -516,7 +527,7 @@
         </div>
         <div class="question q5_3_TEF">
           <h3>Speaking</h3>
-          <select class="selection" id="tef2_speaking" name="tef2_speaking" onclick="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
+          <select class="selection" id="tef2_speaking" name="tef2_speaking" onchange="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="450">393-450</option>
             <option value="392">371-392</option>
@@ -528,7 +539,7 @@
             <option value="180">0-180</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="tef2_listening" name="tef2_listening" onclick="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
+          <select class="selection" id="tef2_listening" name="tef2_listening" onchange="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="360">316-360</option>
             <option value="315">298-315</option>
@@ -540,7 +551,7 @@
             <option value="144">0-144</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="tef2_reading" name="tef2_reading" onclick="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
+          <select class="selection" id="tef2_reading" name="tef2_reading" onchange="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="300">263-300</option>
             <option value="262">248-262</option>
@@ -552,7 +563,7 @@
             <option value="120">0-120</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="tef2_writing" name="tef2_writing" onclick="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
+          <select class="selection" id="tef2_writing" name="tef2_writing" onchange="q5_3function_extend(document.getElementById('tef2_speaking'), document.getElementById('tef2_listening'), document.getElementById('tef2_reading'),document.getElementById('tef2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="450">393-450</option>
             <option value="392">371-392</option>
@@ -566,7 +577,7 @@
         </div>
         <div class="question q5_3_TCF">
           <h3>Speaking</h3>
-          <select class="selection" id="tcf2_speaking" name="tcf2_speaking" onclick="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
+          <select class="selection" id="tcf2_speaking" name="tcf2_speaking" onchange="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="20">16-20</option>
             <option value="15">14-15</option>
@@ -578,7 +589,7 @@
             <option value="3">0-3</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="tcf2_listening" name="tcf2_listening" onclick="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
+          <select class="selection" id="tcf2_listening" name="tcf2_listening" onchange="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">523-548</option>
@@ -590,7 +601,7 @@
             <option value="330">0-330</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="tcf2_reading" name="tcf2_reading" onclick="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
+          <select class="selection" id="tcf2_reading" name="tcf2_reading" onchange="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">524-548</option>
@@ -602,7 +613,7 @@
             <option value="341">0-341</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="tcf2_writing" name="tcf2_writing" onclick="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
+          <select class="selection" id="tcf2_writing" name="tcf2_writing" onchange="q5_3function_extend(document.getElementById('tcf2_speaking'), document.getElementById('tcf2_listening'), document.getElementById('tcf2_reading'),document.getElementById('tcf2_writing'))">
             <option selected value="-1">Select..</option>
             <option value="20">16-20</option>
             <option value="15">14-15</option>
@@ -616,12 +627,12 @@
         </div>
         <!-- work experience -->
         <div class="q6">
-          <h2>6. Work Experience</h2>
+          <h2> Work Experience</h2>
           <h3>
-            i. In the last ten years, how many years of skilled work experience
+            8. In the last ten years, how many years of skilled work experience
             in Canada do you have?
           </h3>
-  <select class="selection" id="work_exp" name="work_exp" onclick="commonfunction(this, document.getElementsByClassName('q6_2')[0])">
+  <select class="selection" id="work_exp" name="work_exp" onchange="commonfunction(this, document.getElementsByClassName('q6_2')[0]);progress_Function(this)">
             <option selected value="-1">Select...</option>
             <option value="0">None or less than a year</option>
             <option value="1">1 year</option>
@@ -634,10 +645,10 @@
         </div>
         <div class="q6_2">
           <h3>
-            ii. In the last 10 years, how many total years of foreign skilled
+            9.In the last 10 years, how many total years of foreign skilled
             work experience do you have?
           </h3>
-          <select class="selection" id="skilled_work" name="skilled_work" onclick="commonfunction(this, document.getElementsByClassName('q7')[0])">
+          <select class="selection" id="skilled_work" name="skilled_work" onchange="commonfunction(this, document.getElementsByClassName('q7')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="0">None or less than a year</option>
             <option value="1">1 year</option>
@@ -646,15 +657,16 @@
           </select>
         </div>
         <div class="q7">
-          <h2>
-            7) Do you have a certificate of qualification from a Canadian
+          <h2>Additional Information</h2>
+          <h3>
+            10. Do you have a certificate of qualification from a Canadian
             province, territory or federal body?
-          </h2>
+          </h3>
           <select
             class="selection"
             id="certificate_canada"
             name="certificate_canada"
-            onclick="commonfunction(this, document.getElementsByClassName('q8')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q8')[0]);progress_Function(this)"
           >
             <option selected value="-1">Select..</option>
             <option value="1">No</option>
@@ -663,11 +675,11 @@
         </div>
         <!-- additional_points start here -->
         <div class="q8">
-          <h2>
-            8) Do you have a valid job offer supported by a Labour Market
+          <h3>
+            11.A) Do you have a valid job offer supported by a Labour Market
             Impact Assessment (if needed)?
-          </h2>
-          <select class="selection" id="labour_impact" name="labour_impact" onclick="q8function(this)">
+          </h3>
+          <select class="selection" id="labour_impact" name="labour_impact" onchange="q8function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
@@ -675,8 +687,8 @@
         </div>
         <!-- if someone selects yes the following options will appear -->
         <div class="q8_1">
-          <h2>8a) Which NOC TEER is the job offer?</h2>
-          <select class="selection" id="NOC_TEER" name="NOC_TEER" onclick="commonfunction(this, document.getElementsByClassName('q9')[0])">
+          <h3>11.B) Which NOC TEER is the job offer?</h3>
+          <select class="selection" id="NOC_TEER" name="NOC_TEER" onchange="commonfunction(this, document.getElementsByClassName('q9')[0]);(this)">
             <option selected value="-1">Select..</option>
             <option value="1">NOC TEER 0 Major group 00</option>
             <option value="2">
@@ -686,23 +698,23 @@
           </select>
         </div>
         <div class="q9">
-          <h2>
-            9) Do you have a nomination certificate from a province or
+          <h3>
+            12. Do you have a nomination certificate from a province or
             territory?
-          </h2>
-          <select class="selection" name="nomination" id="nomination" onclick="commonfunction(this, document.getElementsByClassName('q10')[0])">
+          </h3>
+          <select class="selection" name="nomination" id="nomination" onchange="commonfunction(this, document.getElementsByClassName('q10')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
           </select>
         </div>
         <div class="q10">
-          <h2>
-            10) Do you or your spouse or common law partner (if they will come
+          <h3>
+            13. Do you or your spouse or common law partner (if they will come
             with you to Canada) have at least one brother or sister living in
             Canada who is a citizen or permanent resident?
-          </h2>
-          <select class="selection" name="living_canada" id="living_canada" onclick="q10function(this)">
+          </h3>
+          <select class="selection" name="living_canada" id="living_canada" onchange="q10function(this);progress_Function(this)">
             <option selected value="-1">Select...</option>
             <option value="1">No</option>
             <option value="2">Yes</option>
@@ -711,8 +723,8 @@
         <!-- spouse info -->
         <div class="q11">
           <h2>Spouse Information</h2>
-          <h2>11. What is the highest level of education for which your spouse or common-law partner's has?</h2>
-          <select class="selection" id="spouseeducation" name="spouseeducation" onclick="commonfunction(this, document.getElementsByClassName('q11-1')[0])">
+          <h3>14. What is the highest level of education for which your spouse or common-law partner's has?</h3>
+          <select class="selection" id="spouseeducation" name="spouseeducation" onchange="commonfunction(this, document.getElementsByClassName('q11-1')[0]);progress_Function(this)">
             <option selected value="-1">Select..</option>
             <option value="0">None or less than secondary(high school)</option>
             <option value="1">Secondary Diploma (high school graduation)</option>
@@ -740,22 +752,22 @@
           </select>
         </div>
         <div class="q11-1">
-          <h2>11. ii. Have your spouse earned a Canadian degree, diploma or certificate?</h2>
-          <select class="selection" id="spouse_canadian_degree" name="spouse_canadian_degree" onclick="q11_1function(this)">
+          <h3>15.A) Have your spouse earned a Canadian degree, diploma or certificate?</h3>
+          <select class="selection" id="spouse_canadian_degree" name="spouse_canadian_degree" onchange="q11_1function(this);progress_Function(this)">
             <option selected value="-1">Select..</option>            
             <option value="2">No</option>
             <option value="1">Yes</option>
           </select>
         </div>
         <div class="q11-2">
-          <h2>
-            11. iii. Choose the best answer to describe this level of education.
-          </h2>
+          <h3>
+            15.B) Choose the best answer to describe this level of education.
+          </h3>
           <select
             class="selection"
             id="spouse_canadian_degree_level"
             name="spouse_canadian_degree_level"
-            onclick="commonfunction(this, document.getElementsByClassName('q12')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q12')[0])"
           >
             <option selected value="-1">Select..</option>
             <option value="0">Secondary (high school) or less</option>
@@ -768,8 +780,8 @@
           </select>
         </div>
         <div class="q12">
-          <h2>12. In the last ten years, how many years of skilled work experience in Canada does your spouse/common-law partner have?</h2>
-          <select class="selection" id="spousework_exp" name="spousework_exp" onclick="commonfunction(this, document.     getElementsByClassName('q13')[0])">
+          <h3>16. In the last ten years, how many years of skilled work experience in Canada does your spouse/common-law partner have?</h3>
+          <select class="selection" id="spousework_exp" name="spousework_exp" onchange="commonfunction(this, document.getElementsByClassName('q13')[0]);progress_Function(this)">
             <option selected value="-1">Select...</option>
             <option value="0">None or less than a year</option>
             <option value="1">1 year</option>
@@ -780,14 +792,14 @@
           </select>
         </div>
         <div class="q13">
-          <h2>
-            13. Did your spouse or common-law partner take a language test? If so, which one?
-          </h2>
+          <h3>
+            17. Did or will your spouse or common-law partner take a language test? If so, which one? 
+          </h3>
           <select
             class="selection"
             id="spouselanguage_test_type"
             name="spouselanguage_test_type"
-            onclick="q13function(this)"
+            onchange="q13function(this);progress_Function(this)"
           >
             <option selected value="-1">Select..</option>
             <option value="1">CELPIP-G</option>
@@ -795,6 +807,7 @@
             <option value="3">PTE Core</option>
             <option value="4">TEF Canada</option>
             <option value="5">TCF Canada</option>
+            <option value="0">Not applicable</option>
           </select>
         </div>
         <div class="question q13_CELPIP">
@@ -803,7 +816,7 @@
             class="selection"
             id="spousecelplp-g_speaking"
             name="spousecelpip-g_speaking"
-            onclick="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
+            onchange="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -820,7 +833,7 @@
             class="selection"
             id="spousecelplp-g_listening"
             name="spousecelpip-g_listening"
-            onclick="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
+            onchange="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -837,7 +850,7 @@
             class="selection"
             id="spousecelplp-g_reading"
             name="spousecelpip-g_reading"
-            onclick="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
+            onchange="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -854,7 +867,7 @@
             class="selection"
             id="spousecelplp-g_writing"
             name="spousecelpip-g_writing"
-            onclick="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
+            onchange="q13_extend(document.getElementById('spousecelplp-g_speaking'), document.getElementById('spousecelplp-g_listening'), document.getElementById('spousecelplp-g_reading'),document.getElementById('spousecelplp-g_writing'))"
           >
             <option selected value="-1">Select..</option>
             <option value="10">10-12</option>
@@ -869,7 +882,7 @@
         </div>
         <div class="question q13_IELTS">
           <h3>Speaking</h3>
-          <select class="selection" id="spouseielts_speaking" name="spouseielts_speaking" onclick="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
+          <select class="selection" id="spouseielts_speaking" name="spouseielts_speaking" onchange="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="7.5">7.5-9.0</option>
             <option value="7">7.0</option>
@@ -881,7 +894,7 @@
             <option value="0">0-3.5</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="spouseielts_listening" name="spouseielts_listening" onclick="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
+          <select class="selection" id="spouseielts_listening" name="spouseielts_listening" onchange="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="8.5">8.5-9.0</option>
             <option value="8">8.0</option>
@@ -893,7 +906,7 @@
             <option value="0">0-4.0</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="spouseielts_reading" name="spouseielts_reading" onclick="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
+          <select class="selection" id="spouseielts_reading" name="spouseielts_reading" onchange="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="8">8-9</option>
             <option value="7">7.0-7.5</option>
@@ -905,7 +918,7 @@
             <option value="0">0-3.0</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="spouseielts_writing" name="spouseielts_writing" onclick="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
+          <select class="selection" id="spouseielts_writing" name="spouseielts_writing" onchange="q13_extend(document.getElementById('spouseielts_speaking'), document.getElementById('spouseielts_listening'), document.getElementById('spouseielts_reading'),document.getElementById('spouseielts_writing'))">
             <option selected value="-1">Select..</option>
             <option value="7.5">7.5-9.0</option>
             <option value="7">7.0</option>
@@ -919,7 +932,7 @@
         </div>
         <div class="question q13_PTECORE">
           <h3>Speaking</h3>
-          <select class="selection" id="spouseptecore_speaking" name="spouseptecore_speaking" onclick="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
+          <select class="selection" id="spouseptecore_speaking" name="spouseptecore_speaking" onchange="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="90">89-90</option>
             <option value="88">84-88</option>
@@ -931,7 +944,7 @@
             <option value="41">0-41</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="spouseptecore_listening" name="spouseptecore_listening"onclick="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
+          <select class="selection" id="spouseptecore_listening" name="spouseptecore_listening"onchange="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="90">89-90</option>
             <option value="88">82-88</option>
@@ -943,7 +956,7 @@
             <option value="27">0-27</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="spouseptecore_reading" name="spouseptecore_reading"onclick="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
+          <select class="selection" id="spouseptecore_reading" name="spouseptecore_reading"onchange="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="88">88-90</option>
             <option value="87">78-87</option>
@@ -955,7 +968,7 @@
             <option value="32">0-32</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="spouseptecore_writing" name="spouseptecore_writing"onclick="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
+          <select class="selection" id="spouseptecore_writing" name="spouseptecore_writing"onchange="q13_extend(document.getElementById('spouseptecore_speaking'), document.getElementById('spouseptecore_listening'), document.getElementById('spouseptecore_reading'),document.getElementById('spouseptecore_writing'))">
             <option selected value="-1">Select..</option>
             <option value="90">90</option>
             <option value="89">88-89</option>
@@ -969,7 +982,7 @@
         </div>
         <div class="question q13_TEF">
           <h3>Speaking</h3>
-          <select class="selection" id="spousetef_speaking" name="spousetef_speaking" onclick="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
+          <select class="selection" id="spousetef_speaking" name="spousetef_speaking" onchange="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="450">393-450</option>
             <option value="392">371-392</option>
@@ -981,7 +994,7 @@
             <option value="180">0-180</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="spousetef_listening" name="spousetef_listening" onclick="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
+          <select class="selection" id="spousetef_listening" name="spousetef_listening" onchange="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="360">316-360</option>
             <option value="315">298-315</option>
@@ -993,7 +1006,7 @@
             <option value="144">0-144</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="spousetef_reading" name="spousetef_reading" onclick="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
+          <select class="selection" id="spousetef_reading" name="spousetef_reading" onchange="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="300">263-300</option>
             <option value="262">248-262</option>
@@ -1005,7 +1018,7 @@
             <option value="120">0-120</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="spousetef_writing" name="spousetef_writing" onclick="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
+          <select class="selection" id="spousetef_writing" name="spousetef_writing" onchange="q13_extend(document.getElementById('spousetef_speaking'), document.getElementById('spousetef_listening'), document.getElementById('spousetef_reading'),document.getElementById('spousetef_writing'))">
             <option selected value="-1">Select..</option>
             <option value="450">393-450</option>
             <option value="392">371-392</option>
@@ -1019,7 +1032,7 @@
         </div>
         <div class="question q13_TCF">
           <h3>Speaking</h3>
-          <select class="selection" id="spousetcf_speaking" name="spousetcf_speaking" onclick="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
+          <select class="selection" id="spousetcf_speaking" name="spousetcf_speaking" onchange="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="20">16-20</option>
             <option value="15">14-15</option>
@@ -1031,7 +1044,7 @@
             <option value="3">0-3</option>
           </select>
           <h3>Listening</h3>
-          <select class="selection" id="spousetcf_listening" name="spousetcf_listening" onclick="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
+          <select class="selection" id="spousetcf_listening" name="spousetcf_listening" onchange="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">523-548</option>
@@ -1043,7 +1056,7 @@
             <option value="330">0-330</option>
           </select>
           <h3>Reading</h3>
-          <select class="selection" id="spousetcf_reading" name="spousetcf_reading" onclick="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
+          <select class="selection" id="spousetcf_reading" name="spousetcf_reading" onchange="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="699">549-699</option>
             <option value="548">524-548</option>
@@ -1055,7 +1068,7 @@
             <option value="341">0-341</option>
           </select>
           <h3>Writing</h3>
-          <select class="selection" id="spousetcf_writing" name="spousetcf_writing" onclick="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
+          <select class="selection" id="spousetcf_writing" name="spousetcf_writing" onchange="q13_extend(document.getElementById('spousetcf_speaking'), document.getElementById('spousetcf_listening'), document.getElementById('spousetcf_reading'),document.getElementById('spousetcf_writing'))">
             <option selected value="-1">Select..</option>
             <option value="20">16-20</option>
             <option value="15">14-15</option>
@@ -1068,12 +1081,17 @@
           </select>
         </div>
         <!-- button handle for calculation -->
-        <button class="button" onclick="mainCalculation();finalcalculation();suggestion_show_Function()">Calculate</button>
-        <!-- <button class="button suggestion">Suggestion</button> -->
-         <div class="suggestion"></div>
+        <button class="button calculation" onclick="mainCalculation();finalcalculation();suggestion_show_Function()">Calculate</button>
         <!-- result show handle CRS calculation, Federal Skill Work and Error -->
         <div class="output"></div>
-        <div class="federal_skill_output"></div>      
+        <div class="federal_skill_output"></div>
+        <!-- button handle for suggestion page -->
+        <div class="suggestion">
+          <h2>Click the Suggestion button to see possible improvement 
+            areas</h2>
+          <button class="button" onclick="info_popup_Function(this)">Improvement</button>
+        </div>
+
       </div>      
     </div>
     <div class="main-body">

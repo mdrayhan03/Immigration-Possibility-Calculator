@@ -1,5 +1,8 @@
 // ---------------------------transition function start------------------------------ //
 
+var logo = document.getElementsByClassName("logo")[0]
+document.getElementsByClassName("all")[0].style.marginTop = logo.offsetHeight + 10 + "px" ;
+
 // make max height
 function max_height(element) {    
     element.style.maxHeight = element.scrollHeight + 'px';
@@ -261,7 +264,7 @@ function finalcalculation() {
     var federal_skill_output = document.getElementsByClassName("federal_skill_output")[0] ;
     var suggestion = document.getElementsByClassName("suggestion")[0] ;
     output.style.maxHeight = "0px" ;
-    federal_skill_output.style.maxHeight = "0px" ;    
+    federal_skill_output.style.maxHeight = "0px" ;  
     max_height(output) ;
     max_height(federal_skill_output) ;
     suggestion.style.display = "block" ;
