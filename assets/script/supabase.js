@@ -1,5 +1,5 @@
-const supabaseUrl = 'https://aidjhvfvbyudzrzduwag.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZGpodmZ2Ynl1ZHpyemR1d2FnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM1NTQ4NDAsImV4cCI6MjAzOTEzMDg0MH0.A7otTKYyjRPA7bVxgcFotw7UswxmWJytnzddYcZyLk4';
+const supabaseUrl = 'https://jwyeljttuypuwqpcguib.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3eWVsanR0dXlwdXdxcGNndWliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjY3NDg1NDMsImV4cCI6MjA0MjMyNDU0M30.W4McGtOiT0CRuzdQXd16xfp1PRA0uceNvhQSNfSUVY8';
 const base = supabase.createClient(supabaseUrl, supabaseKey);
 
 async function authenticate() {
