@@ -16,8 +16,8 @@ async function authenticate() {
 
 // authenticate() ;
 
-async function is_connected(email, pN) {
-    const response = await base.from("tb_calculation").select("*").or(`email.eq.${email},pN.eq.${pN}`) ;
+async function is_connected(email) {
+    const response = await base.from("tb_calculation").select("*").or(`email.eq.${email}`) ;
 
     if (response.error) {
         console.error("Error", response.error) ;
@@ -32,7 +32,7 @@ async function is_connected(email, pN) {
 }
 
 async function insert_data(array) {
-    const resp = await is_connected(email, pN) ;
+    const resp = await is_connected(email) ;
     console.log(resp) ;
     if (resp) {
         base.from('tb_calculation')
