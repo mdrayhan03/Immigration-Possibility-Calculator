@@ -55,7 +55,7 @@ function q2_1function(element) {
 // q4_2
 function q4_2function(element) {
     var one = document.getElementsByClassName('q4_3')[0];
-    var two = document.getElementsByClassName('q5')[0];
+    var two = document.getElementsByClassName('q5_2')[0];
 
     var value = parseInt(element.value) ;
     one.style.maxHeight = "0px";
@@ -183,13 +183,13 @@ function q10function(element) {
     var value = parseInt(document.getElementById("will_spouse_come").value) ;    
     var one = document.getElementsByClassName("q11")[0]
     one.style.maxHeight = "0px" ;
-    document.getElementsByClassName("button")[0].disabled = true;
+    document.getElementsByClassName("button")[0].style.display = "none" ;
     if (parseInt(element.value) != -1) {
         if (value === 2) {        
             max_height(one)
         }
         else {
-            document.getElementsByClassName("button")[0].disabled = false;
+            document.getElementsByClassName("button")[0].style.display = "block" ;
         }
     }
 }
@@ -216,6 +216,7 @@ function q13function(element) {
     var ptecore = document.getElementsByClassName('q13_PTECORE')[0];
     var tfe = document.getElementsByClassName('q13_TEF')[0];
     var tfc = document.getElementsByClassName('q13_TCF')[0];
+    var button = document.getElementsByClassName("button")[0]
 
     var value = parseInt(element.value) ;
     celpip.style.maxHeight = "0px";
@@ -223,6 +224,7 @@ function q13function(element) {
     ptecore.style.maxHeight = "0px";
     tfe.style.maxHeight = "0px";
     tfc.style.maxHeight = "0px";
+    button.disabled = true ;
 
     if (value === 1) {
         max_height(celpip) ;
@@ -239,15 +241,18 @@ function q13function(element) {
     else if (value === 5) {
         max_height(tfc) ;
     }
+    else if (value === 0) {
+        button.style.display = "block" ;
+    }
 }
 
 // q13 primary language
 function q13_extend(speak, listen, read, write) {
     var element = document.getElementsByClassName("button")[0]
-    element.disabled = true ;
+    element.style.display = "none" ;
     if (parseInt(document.getElementById("will_spouse_come").value) == 2)
         if (speak.value !== "-1" && listen.value !== "-1" && read.value !== "-1" && write.value !== "-1") {
-            element.disabled = false ;
+            element.style.display = "block" ;
         }
 }
 
@@ -297,7 +302,7 @@ function suggestion_show_Function() {
 }
 
 function booking_Function() {
-    window.open('https://immizen.ca/consultation-booking/', '_blank');
+    window.open(' https://tidycal.com/sajid/discounted-crs-assessment', '_blank');
 }
 
 // ---------------------------transition function end------------------------------ //

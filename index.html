@@ -158,7 +158,7 @@
             class="selection"
             id="canadian_degree_level"
             name="canadian_degree_level"
-            onchange="commonfunction(this, document.getElementsByClassName('q5')[0])"
+            onchange="commonfunction(this, document.getElementsByClassName('q5_2')[0])"
           >
             <option selected value="-1">Select..</option>
             <option value="0">Secondary (high school) or less</option>
@@ -172,15 +172,6 @@
         </div>
         <!-- language proficiency -->
         <div class="question q5">
-          <h2>
-            5. Official languages: Canada's official languages are English and
-            French.
-          </h2>
-          <h2>
-            You need to submit language test results that are less than two
-            years old for all programs under Express Entry, even if English or
-            French is your first language.
-          </h2>
           <h2>i. Are your test results less than two years old?</h2>
           <select class="selection" id="language_test" name="language_test" onchange="q5function(this)">
             <option selected value="-1">Select..</option>
@@ -191,8 +182,16 @@
         <!-- if someone selects they will no longer be able to continue the application -->
         <div class="question q5_2">
           <h2>
-            ii. Which language test did you take for your first official
-            language?
+            5. Official languages: Canada's official languages are English and
+            French.
+          </h2></br>
+          <h2>
+            You need to submit language test results that are less than two
+            years old for all programs under Express Entry, even if English or
+            French is your first language.
+          </h2></br>
+          <h2>
+            ii. Which language test did you take or will you take for your first official language?
           </h2>
           <select
             class="selection"
@@ -756,7 +755,8 @@
         </div>
         <div class="question q13">
           <h2>
-            13. Did your spouse or common-law partner take a language test? If so, which one?
+            13. Did or will your spouse or common-law partner take a language test? If so, which one?
+            
           </h2>
           <select
             class="selection"
@@ -770,6 +770,7 @@
             <option value="3">PTE Core</option>
             <option value="4">TEF Canada</option>
             <option value="5">TCF Canada</option>
+            <option value="0">Not applicable</option>
           </select>
         </div>
         <div class="question q13_CELPIP">
@@ -1043,7 +1044,7 @@
           </select>
         </div>
         <!-- button handle for calculation -->
-        <button class="button" onclick="mainCalculation();finalcalculation()" disabled>Calculate</button>
+        <button class="button calculation" onclick="mainCalculation();finalcalculation()">Calculate</button>
         <!-- result show handle CRS calculation, Federal Skill Work and Error -->
         <div class="question output"></div>
         <div class="question federal_skill_output"></div>
@@ -1053,12 +1054,16 @@
           </h2>
         </div>
         <!-- button handle for suggestion page -->
-        <button class="button suggestion" onclick="info_popup_Function(this)">Suggestion</button>
+        <div class="suggestion">
+          <h2>Click the Suggestion button to see possible improvement 
+            areas</h2>
+          <button class="button" onclick="info_popup_Function(this)">Improvement</button>
+        </div>
       </div>      
     </div>
     <div class="main-body">
       <div class="info-main">
-        <i class="fa-solid fa-xmark" onchange="info_popup_cross_Function()"></i>
+        <i class="fa-solid fa-xmark" onclick="info_popup_cross_Function()"></i>
           <table>
               <tr>
                   <th colspan="2">Information</th>
@@ -1075,10 +1080,10 @@
                   <td>Country</td>
                   <td><input type="text" id="country"></td>
               </tr>
-              <tr>
+              <!-- <tr>
                   <td>Phone No</td>
                   <td><input type="text" id="pN"></td>
-              </tr>
+              </tr> -->
               <tr>
                 <td colspan="2" class="combobox-td">                                
                   <input type="checkbox" name="check" id="check" style="width: 12px;" onchange="check_Function(this)">
@@ -1094,7 +1099,7 @@
       </div>
     </div>
     <div class="suggestion-main">
-      <h1>Suggestions</h1></br>
+      <h1> Improvement Suggestions</h1></br>
       <div class="suggestion-output"></div>
       <button class="button" onclick=" booking_Function() ">BOOK A CONSULTATION</button>
       <p class="disclaimer"><i><b>Disclaimer:</b> This a calculation based on the information provided by the client, this doesn’t guarantee accuracy for the calculation or claiming points to IRCC. The tool is meant to provide an idea about areas for improvement.</i></p>

@@ -658,40 +658,40 @@ function crsCalculation() {
     total = humancore+spouse+skillfactors+additional ;
 
     var output = document.getElementsByClassName("output")[0] ;
-    var text = "<h1>Total Point : "+total+"</br>"+
-               "<h2>A.Human Core : "+humancore+"</br>"+
-               "<h3>Age : "+agePoint+"</br>"+
-               "<h3>Education : "+educationPoint+"</br>"+
-               "<h3>First Language CLB : "+firstLanguagePoint+"</br>"+
-               "<h3>Second Language CLB : "+secondLanguagePoint+"</br>"+
-               "<h3>Canadian Work Experience : "+canadianworkPoint+"</br>"+
-               "<h2>B.Spouse : "+spouse+"</br>"+
-               "<h3>Spouse Education : "+spousedegreePoint+"</br>"+
-               "<h3>Spouse Canadian Work Experience : "+spousecanadianworkPoint+"</br>"+
-               "<h3>Spouce CLB : "+spouseclbPoint+"</br>"+
-               "<h2>C.Skill Factor : "+skillfactors+"</br>"+
-               "<h3>Degree with CLB : "+degreeclbPoint+"</br>"+
-               "<h3>Canadian Work Experience with Degree : "+canadianworkdegreePoint+"</br>"+
-               "<h3>Foreign Work Experience with CLB : "+foreignworkclbPoint+"</br>"+
-               "<h3>Canadian Work Experience with Foreign Work Experience : "+canadianforeignworkPoint+"</br>"+
-               "<h3>Certificate : "+certificatePoint+"</br>"+
-               "<h2>D.Additional : "+additional+"</br>"+
-               "<h3>Brother/Sister Resident : "+residentPoint+"</br>"+
-               "<h3>NCLC Point : "+nclcPoint+"</br>"+
-               "<h3>Canadian Degree : "+canadiandegreePoint+"</br>"+
-               "<h3>Job Offer : "+jobofferPoint+"</br>"+
-               "<h3>Province/Territory certificate : "+nominationPoint+"</br>"
-               ;
+    var text = "<h1>All Express Entry candidates get a score "+total+" out of 1,200, based on the four parts of the Comprehensive Ranking System formula.</br>" ;
+            //    "<h2>A.Human Core : "+humancore+"</br>"+
+            //    "<h3>Age : "+agePoint+"</br>"+
+            //    "<h3>Education : "+educationPoint+"</br>"+
+            //    "<h3>First Language CLB : "+firstLanguagePoint+"</br>"+
+            //    "<h3>Second Language CLB : "+secondLanguagePoint+"</br>"+
+            //    "<h3>Canadian Work Experience : "+canadianworkPoint+"</br>"+
+            //    "<h2>B.Spouse : "+spouse+"</br>"+
+            //    "<h3>Spouse Education : "+spousedegreePoint+"</br>"+
+            //    "<h3>Spouse Canadian Work Experience : "+spousecanadianworkPoint+"</br>"+
+            //    "<h3>Spouce CLB : "+spouseclbPoint+"</br>"+
+            //    "<h2>C.Skill Factor : "+skillfactors+"</br>"+
+            //    "<h3>Degree with CLB : "+degreeclbPoint+"</br>"+
+            //    "<h3>Canadian Work Experience with Degree : "+canadianworkdegreePoint+"</br>"+
+            //    "<h3>Foreign Work Experience with CLB : "+foreignworkclbPoint+"</br>"+
+            //    "<h3>Canadian Work Experience with Foreign Work Experience : "+canadianforeignworkPoint+"</br>"+
+            //    "<h3>Certificate : "+certificatePoint+"</br>"+
+            //    "<h2>D.Additional : "+additional+"</br>"+
+            //    "<h3>Brother/Sister Resident : "+residentPoint+"</br>"+
+            //    "<h3>NCLC Point : "+nclcPoint+"</br>"+
+            //    "<h3>Canadian Degree : "+canadiandegreePoint+"</br>"+
+            //    "<h3>Job Offer : "+jobofferPoint+"</br>"+
+            //    "<h3>Province/Territory certificate : "+nominationPoint+"</br>"
+            //    ;
     output.innerHTML = text ;
     suggestionFunction(total, firstLanguageCLB, firstdict) ;
 }
 
 function mainCalculation() {
     crsCalculation() ;
-    federal_skilled_workerCalculation() ;
+    // federal_skilled_workerCalculation() ;
     window.data = {
         "crs_total" : total ,
-        "federal_total" : totalPoint ,
+        "federal_total" : 0 ,
     }
 }
 
@@ -704,10 +704,21 @@ function suggestionFunction (total, fclb, fclbpoint) {
     var firstLanguage = [] ;
     var firstLanguagePoint = [] ;
 
-    text += "<p>Your Current CRS Score: "+total+"</p></br><p><b>Improvement opportunities for CRS score:</b></p></br>";
+    // language
+    var educationValue = parseInt(document.getElementById("education").value) ;
+    var ftotal = total ;
+    if (educationValue < 6) {
+        var p = 0 ;
+        if (status === false) {p = 135 - educationU[educationValue];}
+        else if (status === true) {p = 126 - educationU[educationValue];}
+        ftotal += p ;
+        text += "<p><b>A Summary of the Improvement Suggestion:</b> Getting another post-graduate diploma or a Master’s with an improved language score can improve your CRS score.</p></br>" ;
+    }
+
+    text += "<table><tr><td><b>Current CRS Score<b></td><td>"+total+" points</td></tr>";
 
     // short term    
-    stext = "<p><b><u>Short Term: </u></b></p></br>";
+    stext = "<tr><td><b><u>Short Term</u></b></td><td></td></tr>";
 
     // language 
     if (fclb[0] < 9) {
@@ -727,8 +738,24 @@ function suggestionFunction (total, fclb, fclbpoint) {
         firstLanguagePoint.push(29-fclbpoint["speaking"])        
     }
 
-    stext += "<p><b>Language Improvement:</b> Only by improving your " ;
+    stext += "<tr><td><b>Language Improvement:</b> Improving your " ;
     
+    if (parseInt(document.getElementById("language_test_type").value) === 1) {
+        stext += "CELPIP-G " ;
+    }
+    else if (parseInt(document.getElementById("language_test_type").value) === 2) {
+        stext += "IELTS " ;
+    }
+    else if (parseInt(document.getElementById("language_test_type").value) === 3) {
+        stext += "PTE Core " ;
+    }
+    else if (parseInt(document.getElementById("language_test_type").value) === 4) {
+        stext += "TEF Canada " ;
+    }
+    else if (parseInt(document.getElementById("language_test_type").value) === 5) {
+        stext += "TCF Canada " ;
+    }
+
     if (firstLanguage.length > 1) {
         s = true ;
         for (let i = 0; i < firstLanguage.length-1 ; i++) {
@@ -740,41 +767,35 @@ function suggestionFunction (total, fclb, fclbpoint) {
         s = true ;
         stext += firstLanguage[0];
     }
-    stext += " Band to 9 will you increase your total CRS score to " ;
-    var ftotal = total ;
+    stext += " Band to 9 will add additional points.</td>" ;
+    var ftotal = 0 ;
     for (let i=0; i<firstLanguagePoint.length;i++) {
         ftotal += firstLanguagePoint[i] ;
     }
 
-    stext += ftotal+" (adding "+ 29 * firstLanguagePoint.length +" additional points).</p></br>" ;
-
-    // language
-    var educationValue = parseInt(document.getElementById("education").value) ;
-    var ftotal = total ;
-    if (educationValue < 6) {
-        var p = 0 ;
-        if (status === false) {p = 135 - educationU[educationValue];}
-        else if (status === true) {p = 126 - educationU[educationValue];}
-        ftotal += p ;
-        text += "<p><b>Language and Education Improvement (without Master):</b> A Masters Degree with suggested language improvment can increase your current CRS score to "+ftotal+" (adding "+p+" additional points)</p></br>" ;
-    }
+    stext += "<td>"+ftotal+" Additional points</td></tr>" ;
 
     // long term
-    var ltext = "<p><b><u>Long-term:</u></b></p></br>"
+    var ltotal = 0 ;
+    var ltext = "<tr><td><b><u>Long-term:</u></b></td><td></td></tr>"
     var canadianDegreeValue = parseInt(document.getElementById("canadian_degree").value) ;
     if (canadianDegreeValue === 2) {
         l = true ;
-        ltext += "<p><b>Canadian Degree:</b> Post Secondary Canadian 1 or 2 years degree can add 15 additional points or a 3 years or longer degree can add 30 points with the CRS score. If the program qualifies, it will also allow you to get a 1-3 year work permit after graduation to work with any employers in Canada. </p></br>" ;
+        ltext += "<tr><td><b>Canadian Degree:</b> Doing a post graduate diploma or a Masters degree can add additional points</td><td>25 Additional points.</td></tr>" ;
+        ltotal += 25 ;
     }
 
     var jobOfferValue = parseInt(document.getElementById("labour_impact").value) ;
     if (jobOfferValue === 1) {
         l = true ;
-        ltext += "<p><b>Arranged Job Offer:</b> Getting an LMIA-based job offer could add 50 additional points, sometimes 200 extra points to the total CRS score.</p></br>"
-    }
+        ltext += "<tr><td><b>Arranged Job Offer:</b> An LMIA-based job offer can offer additional points.</td><td>50 Additional points</td></tr>"
+        ltotal += 50
+    }   
 
     if (s === true) {text += stext ;}    
     if (l === true) {text += ltext ;}
+    var t = total+ftotal+ltotal ;
+    text += "<tr><td><b>Total score after improvements<b></td><td>"+t+" points</td></tr></table><h2>Congratulations! You have unlocked a 75% discounted full assessment session with one of our licensed Canadian immigration consultants (RCIC) to get further advice</h2>" ;
 
     console.log(text) ;
     element.innerHTML = text ;

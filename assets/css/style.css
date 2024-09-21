@@ -126,15 +126,15 @@ p {
 
 .logo {
   width: 100%;
-  background-color: #F9F6FE;
+  background-color: var(--bg-color);
 }
 
 .logo-img {
   padding-top: 40px;
   padding-left: 100px;
   padding-bottom: 20px;
-  max-width: 180px;
-  width: 180px;
+  max-width: 300px;
+  width: 300px;
 }
 
 .logo-img img {
@@ -180,7 +180,8 @@ p {
 }
 
 .button {
-  margin: 50px 0;
+  display: block;
+  margin: 50px auto;
   padding: 15px 30px;
   width: auto;
   font-size: 20px;  
@@ -203,12 +204,17 @@ button:disabled {
   background-color: var(--button-color-hover) ;
 }
 
+.calculation {
+  display: none;
+}
+
 .error h2 {
   color: red;
   text-align: justify;
 }
 
 .suggestion {
+  margin: 20px 0;
   display: none;
 }
 
@@ -270,7 +276,11 @@ button:disabled {
 .info-main .combobox-td {
   padding: 10px;
   font-size: 12px;
-  font-style: italic;
+  font-style: italic;  
+}
+
+.info-main .combobox-td label {
+  cursor: pointer;
 }
 
 .info-main .popup {
@@ -284,8 +294,28 @@ button:disabled {
   max-height: 0px;
   margin:100px;
   margin-top: 0px;
-  overflow: hidden;
+  overflow: hidden;  
 }
+
+.suggestion-output table {  
+  width: 100%;
+  margin: auto;  
+}
+
+.suggestion-output table tr td{
+  padding: 10px;  
+}
+
+
+.suggestion-output table tr td:first-child {
+  text-align: left;
+  border-right: 2px solid black;
+}
+
+.suggestion-output table tr td:last-child {
+  text-align: right;
+  font-weight: bold;
+} 
 
 
 /* media qurey */
@@ -328,7 +358,7 @@ button:disabled {
   }
 
   .button {
-    margin: 10px 0;
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 10px;
   }
@@ -392,7 +422,7 @@ button:disabled {
   }
 
   .button {
-    margin: 10px 0;
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 12px;
   }
@@ -456,7 +486,7 @@ button:disabled {
   }
 
   .button {
-    margin: 10px 0;
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 14px;
   }
@@ -485,29 +515,30 @@ button:disabled {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   h1 {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   h2 {    
-    font-size: 24px;
+    font-size: 20px;
     padding-bottom: 5px;
   }
   
   h3 {
     margin-left: 30px;
     padding-bottom: 2px;
-    font-size: 20px;
+    font-size: 18px;
   }
   
   p {
     font-size: 16px;
   }
+
   .all {
-    margin: 40px 100px;
+    margin: 40px 100px;    
   }
 
   .logo-img {
-    width: 180px;
+    width: 300px;
   }
 
   .body-container .selection {   
@@ -520,7 +551,7 @@ button:disabled {
   }
 
   .button {
-    margin: 50px 0;
+    margin: 50px auto;
     padding: 15px 30px;
     font-size: 20px;
   }
@@ -550,29 +581,30 @@ button:disabled {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   h1 {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   h2 {    
-    font-size: 24px;
+    font-size: 20px;
     padding-bottom: 5px;
   }
   
   h3 {
     margin-left: 30px;
     padding-bottom: 2px;
-    font-size: 20px;
+    font-size: 18px;
   }
   
   p {
     font-size: 16px;
   }
+
   .all {
     margin: 40px 100px;   
   }
 
   .logo-img {
-    width: 180px;
+    width: 300px;
   }
 
   .body-container .selection {   
@@ -585,7 +617,7 @@ button:disabled {
   }
 
   .button {
-    margin: 50px 0;
+    margin: 50px auto;
     padding: 15px 30px;
     font-size: 20px;
   }
