@@ -156,7 +156,7 @@ function spouseclblevel(element) {
     var value = parseInt(element.value) ;
     var clbdict ;   
 
-    if (value === -1) {
+    if (value === -1 || value === 0) {
         clbdict = {
             listening: 0,
             reading: 0,
@@ -616,6 +616,7 @@ function crsCalculation() {
 
         // spouse clb level
         var spousedict = spouseclblevel(document.getElementById("spouselanguage_test_type"))
+        console.log(spousedict) ;
         for (let key in spousedict) {
             console.log(spousedict[key]) ;
             if (spousedict[key] >= 9) {
