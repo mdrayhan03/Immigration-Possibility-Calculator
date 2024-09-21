@@ -224,7 +224,6 @@ function q13function(element) {
     ptecore.style.maxHeight = "0px";
     tfe.style.maxHeight = "0px";
     tfc.style.maxHeight = "0px";
-    button.disabled = true ;
 
     if (value === 1) {
         max_height(celpip) ;
