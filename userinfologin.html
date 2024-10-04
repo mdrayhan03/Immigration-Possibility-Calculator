@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main {
+        width: auto;
+        height: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        text-align: center;        
+    }
+    .main input {
+        margin-top: 20px;
+        padding: 5px;
+        font-size: 18px;
+        border: 0px;
+        border-bottom: 2px solid black;
+        outline: 0px;        
+    }
+    .main button {
+        margin-top: 20px;
+        padding: 5px 20px;
+        font-size: 18px;
+        background-color: #243761;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="main">
+        <h1>Login</h1>
+        <input id="id" type="text" placeholder="admin id"><br>
+        <input id="password" type="password" placeholder="password"><br>
+        <button onclick="login_function()">Login</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest/dist/umd/supabase.min.js"></script>
+<script src="assets/script/supabase.js"></script>
+<script src="assets/script/login.js"></script>
+</html>
