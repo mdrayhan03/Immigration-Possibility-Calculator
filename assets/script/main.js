@@ -1,3 +1,42 @@
+// --------------------------- theme start ------------------------------------------ //
+
+var click = false ;
+
+function theme_control() {
+    var circle = document.getElementsByClassName("theme-button-circle")[0] ;
+    if (click === true) {
+        circle.style.transform = "translate(0%)" ;
+        click = false ;
+
+        document.documentElement.style.setProperty("--bg-color", "#FFFFFF") ;
+        document.documentElement.style.setProperty("--heading-color" , "#243761") ;
+        document.documentElement.style.setProperty("--text-color" , "#000000") ;
+        document.documentElement.style.setProperty("--button-color" , "#243761") ;
+        document.documentElement.style.setProperty("--button-color-hover" , "#243761") ;
+        document.documentElement.style.setProperty("--button-text-color" , "#FFFFFF") ;
+        document.documentElement.style.setProperty("--circle-color" , "gray") ;
+        document.documentElement.style.setProperty("--shadow1-color" , "rgba(0,0,0,0.3)") ;
+        document.documentElement.style.setProperty("--shadow2-color" , "rgba(0,0,0,0.5)") ;
+
+    }
+    else if (click === false) {
+        circle.style.transform = "translate(100%)" ;
+        click = true ;
+
+        document.documentElement.style.setProperty("--bg-color", "#171925") ;
+        document.documentElement.style.setProperty("--heading-color" , "#243761") ;
+        document.documentElement.style.setProperty("--text-color" , "#FFFFFF") ;
+        document.documentElement.style.setProperty("--button-color" , "#243761") ;
+        document.documentElement.style.setProperty("--button-color-hover" , "#243761") ;
+        document.documentElement.style.setProperty("--button-text-color" , "#FFFFFF") ;
+        document.documentElement.style.setProperty("--circle-color" , "white") ;
+        document.documentElement.style.setProperty("--shadow1-color" , "rgba(255,255,255,0.8)") ;
+        document.documentElement.style.setProperty("--shadow2-color" , "rgba(255,255,255,1)") ;
+
+    }
+}
+
+// --------------------------- theme end -------------------------------------------- //
 // ---------------------------transition function start------------------------------ //
 
 var logo = document.getElementsByClassName("logo")[0]
