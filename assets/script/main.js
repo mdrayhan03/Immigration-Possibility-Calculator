@@ -8,6 +8,9 @@ function theme_control() {
         circle.style.transform = "translate(0%)" ;
         click = false ;
 
+        img = document.getElementById("banner-img") ;
+        img.src = "assets/media/banner.png"
+        
         document.documentElement.style.setProperty("--bg-color", "#FFFFFF") ;
         document.documentElement.style.setProperty("--heading-color" , "#243761") ;
         document.documentElement.style.setProperty("--text-color" , "#000000") ;
@@ -18,13 +21,13 @@ function theme_control() {
         document.documentElement.style.setProperty("--shadow1-color" , "rgba(0,0,0,0.3)") ;
         document.documentElement.style.setProperty("--shadow2-color" , "rgba(0,0,0,0.5)") ;
 
-        img = document.getElementById("banner-img") ;
-        img.src = "assets/media/banner.png"
-
     }
     else if (click === false) {
         circle.style.transform = "translate(100%)" ;
         click = true ;
+
+        img = document.getElementById("banner-img") ;
+        img.src = "assets/media/bannerdark.png"
 
         document.documentElement.style.setProperty("--bg-color", "#171925") ;
         document.documentElement.style.setProperty("--heading-color" , "#3d5b9b") ;
@@ -35,9 +38,6 @@ function theme_control() {
         document.documentElement.style.setProperty("--circle-color" , "white") ;
         document.documentElement.style.setProperty("--shadow1-color" , "rgba(255,255,255,0.8)") ;
         document.documentElement.style.setProperty("--shadow2-color" , "rgba(255,255,255,1)") ;
-
-        img = document.getElementById("banner-img") ;
-        img.src = "assets/media/bannerdark.png"
 
     }
 }
