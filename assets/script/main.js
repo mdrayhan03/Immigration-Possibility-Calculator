@@ -1,6 +1,6 @@
 // --------------------------- theme start ------------------------------------------ //
 
-var click = false ;
+var click = true ;
 
 function theme_control() {
     var circle = document.getElementsByClassName("theme-button-circle")[0] ;
@@ -41,6 +41,8 @@ function theme_control() {
 
     }
 }
+
+theme_control() ;
 
 // --------------------------- theme end -------------------------------------------- //
 // ---------------------------transition function start------------------------------ //
