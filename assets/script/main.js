@@ -30,7 +30,7 @@ function theme_control() {
         img.src = "assets/media/bannerdark.png"
 
         document.documentElement.style.setProperty("--bg-color", "#171925") ;
-        document.documentElement.style.setProperty("--heading-color" , "#3d5b9b") ;
+        document.documentElement.style.setProperty("--heading-color" , "#FFFFFF") ;
         document.documentElement.style.setProperty("--text-color" , "#FFFFFF") ;
         document.documentElement.style.setProperty("--button-color" , "#243761") ;
         document.documentElement.style.setProperty("--button-color-hover" , "#243761") ;
