@@ -34,6 +34,9 @@
         .query_taker {
           display: flex;
         }
+        .federal_skill_output {
+          height: auto;
+        }
     </style>
     <div class="logo">
       <!-- <div class="theme">
@@ -57,10 +60,12 @@
       <div class="body-container">
         <h3>Select user email</h3>
         <div class="query_taker">          
-          <select class="selection" name="" id="user_email_select">
+          <!-- <select class="selection" name="" id="user_email_select">
             <option value="-1" selected>Select..</option>
-          </select>
-          <button class="button" onclick="user_info()">Search</button>
+          </select> -->
+          <input list="data" type="text" id="user_email_select" class="selection" placeholder="write user email">
+          <datalist id="data"></datalist>
+          <button class="button" type="button" onclick="user_info()">Search</button>
         </div>
         <!-- single or married & spouse will come or not -->
         <div class="personal_info">
@@ -1093,7 +1098,7 @@
           </select>
         </div>
         <!-- button handle for calculation -->
-        <button class="button calculation" onclick="mainCalculation();finalcalculation();suggestion_show_Function()">Calculate</button>
+        <button class="button calculation" onclick="mainCalculation(2);finalcalculation();federal_skilled_workerCalculation();suggestion_show_Function()">Calculate</button>
         <!-- result show handle CRS calculation, Federal Skill Work and Error -->
         <div class="output"></div>
         <div class="federal_skill_output"></div>
@@ -1101,7 +1106,7 @@
         <div class="suggestion">
           <h2>Click the Suggestion button to see possible improvement 
             areas</h2>
-          <button class="button" onclick="info_popup_Function(this)">Improvement</button>
+          <button class="button" onclick="info_popup_Function(this)" disabled>Improvement</button>
         </div>
 
       </div>      

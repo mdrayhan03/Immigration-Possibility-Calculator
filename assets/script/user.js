@@ -7,13 +7,17 @@ selects.forEach(select => {
 async function select_email() {
   const response = await base.from("tb_calculation").select("id, email") ;
 
-  var select = document.getElementById("user_email_select") ;
-
+  // var select = document.getElementById("user_email_select") ;
+  var datalist = document.getElementById("data") ;
   response.data.forEach(element => {
+    // const option = document.createElement("option") ;
+    // option.value = element["id"] ;
+    // option.text = element["email"] ;
+    // select.add(option) ;
+    
     const option = document.createElement("option") ;
-    option.value = element["id"] ;
-    option.text = element["email"] ;
-    select.add(option) ;
+    option.value = element["email"];
+    data.appendChild(option) ;
   });  
 }
 
@@ -88,9 +92,9 @@ function second_language (value, speak, listen, read, write) {
   }
 }
 
-async function select_user(id) {
-  console.log("ID: "+id) ;
-  const response = await base.from("tb_calculation").select("*").eq("id", id) ;
+async function select_user(email) {
+  console.log("Email: "+email) ;
+  const response = await base.from("tb_calculation").select("*").eq("email", email) ;
 
   const array = Object.values(response.data[0]) ;
   console.log("here") ;
@@ -127,5 +131,5 @@ async function select_user(id) {
 }
 
 function user_info() {
-  select_user(parseInt(document.getElementById("user_email_select").value)) ;
+  select_user(document.getElementById("user_email_select").value) ;
 }

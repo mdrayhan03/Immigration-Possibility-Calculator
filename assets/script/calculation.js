@@ -351,7 +351,7 @@ let spouseclb = [0, 1, 3, 5]
 
 var total ;
 
-function crsCalculation() {
+function crsCalculation(ind) {
     let agePoint = 0, educationPoint = 0, canadianworkPoint = 0, canadianworkdegreePoint = 0, firstLanguageCLB, firstLanguagePoint = 0, secondLanguageCLB, secondLanguagePoint = 0, degreeclbPoint = 0, foreignworkclbPoint = 0, canadianforeignworkPoint = 0, certificatePoint = 0, residentPoint = 0, canadiandegreePoint = 0, jobofferPoint = 0, nominationPoint = 0, spousedegreePoint = 0, spousecanadianworkPoint = 0, spouseclbPoint = 0, spouseCLB, nclcPoint = 0, educationskillPoint = 0, foreignworkskillPoint = 0 ;
 
     let humancore , spouse, skillfactors, additional ;
@@ -660,41 +660,49 @@ function crsCalculation() {
 
     var output = document.getElementsByClassName("output")[0] ;
     var text = "All Express Entry candidates get a score out of 1,200, based on the four parts of the Comprehensive Ranking System formula.</br></br><b>Your score is "+total+" points.</b></br></br>Having a higher score increases the chances of getting the invitation to apply for PR (Permanent Residency)</br>" ;
-            //    "<h2>A.Human Core : "+humancore+"</br>"+
-            //    "<h3>Age : "+agePoint+"</br>"+
-            //    "<h3>Education : "+educationPoint+"</br>"+
-            //    "<h3>First Language CLB : "+firstLanguagePoint+"</br>"+
-            //    "<h3>Second Language CLB : "+secondLanguagePoint+"</br>"+
-            //    "<h3>Canadian Work Experience : "+canadianworkPoint+"</br>"+
-            //    "<h2>B.Spouse : "+spouse+"</br>"+
-            //    "<h3>Spouse Education : "+spousedegreePoint+"</br>"+
-            //    "<h3>Spouse Canadian Work Experience : "+spousecanadianworkPoint+"</br>"+
-            //    "<h3>Spouce CLB : "+spouseclbPoint+"</br>"+
-            //    "<h2>C.Skill Factor : "+skillfactors+"</br>"+
-            //    "<h3>Degree with CLB : "+degreeclbPoint+"</br>"+
-            //    "<h3>Canadian Work Experience with Degree : "+canadianworkdegreePoint+"</br>"+
-            //    "<h3>Foreign Work Experience with CLB : "+foreignworkclbPoint+"</br>"+
-            //    "<h3>Canadian Work Experience with Foreign Work Experience : "+canadianforeignworkPoint+"</br>"+
-            //    "<h3>Certificate : "+certificatePoint+"</br>"+
-            //    "<h2>D.Additional : "+additional+"</br>"+
-            //    "<h3>Brother/Sister Resident : "+residentPoint+"</br>"+
-            //    "<h3>NCLC Point : "+nclcPoint+"</br>"+
-            //    "<h3>Canadian Degree : "+canadiandegreePoint+"</br>"+
-            //    "<h3>Job Offer : "+jobofferPoint+"</br>"+
-            //    "<h3>Province/Territory certificate : "+nominationPoint+"</br>"
-            //    ;
-    output.innerHTML = text ;
+    if (ind == 2) { 
+                text += 
+                    "<h2>A.Human Core : "+humancore+"</br>"+
+                    "<h3>Age : "+agePoint+"</br>"+
+                    "<h3>Education : "+educationPoint+"</br>"+
+                    "<h3>First Language CLB : "+firstLanguagePoint+"</br>"+
+                    "<h3>Second Language CLB : "+secondLanguagePoint+"</br>"+
+                    "<h3>Canadian Work Experience : "+canadianworkPoint+"</br>"+
+                    "<h2>B.Spouse : "+spouse+"</br>"+
+                    "<h3>Spouse Education : "+spousedegreePoint+"</br>"+
+                    "<h3>Spouse Canadian Work Experience : "+spousecanadianworkPoint+"</br>"+
+                    "<h3>Spouce CLB : "+spouseclbPoint+"</br>"+
+                    "<h2>C.Skill Factor : "+skillfactors+"</br>"+
+                    "<h3>Degree with CLB : "+degreeclbPoint+"</br>"+
+                    "<h3>Canadian Work Experience with Degree : "+canadianworkdegreePoint+"</br>"+
+                    "<h3>Foreign Work Experience with CLB : "+foreignworkclbPoint+"</br>"+
+                    "<h3>Canadian Work Experience with Foreign Work Experience : "+canadianforeignworkPoint+"</br>"+
+                    "<h3>Certificate : "+certificatePoint+"</br>"+
+                    "<h2>D.Additional : "+additional+"</br>"+
+                    "<h3>Brother/Sister Resident : "+residentPoint+"</br>"+
+                    "<h3>NCLC Point : "+nclcPoint+"</br>"+
+                    "<h3>Canadian Degree : "+canadiandegreePoint+"</br>"+
+                    "<h3>Job Offer : "+jobofferPoint+"</br>"+
+                    "<h3>Province/Territory certificate : "+nominationPoint+"</br>"
+                    ;
+                }
+    output.innerHTML = text ;    
     suggestionFunction(total, firstLanguageCLB, firstdict) ;
+
 }
 
-function mainCalculation() {
-    crsCalculation() ;
-    // federal_skilled_workerCalculation() ;
+function mainCalculation(ind) {
+    crsCalculation(ind) ;
+    if (ind === 2) {
+        federal_skilled_workerCalculation() ;
+    }
+
     window.data = {
         "crs_total" : total ,
         "federal_total" : 0 ,
     }
 }
+
 
 // function getLanguageScoreIncrease(testType, listening, reading, writing, speaking) {
 //     let improvements = [];
