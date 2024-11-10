@@ -128,6 +128,7 @@ async function select_user(email) {
   document.getElementById("spouse_canadian_degree_level").value = array[32] ;
   document.getElementById("spousework_exp").value = array[33] ;
   document.getElementById("spouselanguage_test_type").value = array[34] ;
+  document.getElementById("date").value = array[38] ;
 }
 
 function user_info() {

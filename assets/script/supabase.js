@@ -91,49 +91,49 @@ function take_info_function() {
     var firstl = parseInt(document.getElementById("language_test_type").value) ;
     var speak, listen, read, write;
     if (firstl === 1) {
-        speak = parseInt(document.getElementById("celplp-g_speaking").value) ;
-        listen = parseInt(document.getElementById("celplp-g_listening").value) ;
-        read = parseInt(document.getElementById("celplp-g_reading").value) ;
-        write = parseInt(document.getElementById("celplp-g_writing").value) ;
+        speak = parseFloat(document.getElementById("celplp-g_speaking").value) ;
+        listen = parseFloat(document.getElementById("celplp-g_listening").value) ;
+        read = parseFloat(document.getElementById("celplp-g_reading").value) ;
+        write = parseFloat(document.getElementById("celplp-g_writing").value) ;
     }
     else if (firstl === 2) {
-        speak = parseInt(document.getElementById("ielts_speaking").value) ;
-        listen = parseInt(document.getElementById("ielts_listening").value) ;
-        read = parseInt(document.getElementById("ielts_reading").value) ;
-        write = parseInt(document.getElementById("ielts_writing").value) ;
+        speak = parseFloat(document.getElementById("ielts_speaking").value) ;
+        listen = parseFloat(document.getElementById("ielts_listening").value) ;
+        read = parseFloat(document.getElementById("ielts_reading").value) ;
+        write = parseFloat(document.getElementById("ielts_writing").value) ;
     }
     else if (firstl === 3) {
-        speak = parseInt(document.getElementById("ptecore_speaking").value) ;
-        listen = parseInt(document.getElementById("ptecore_listening").value) ;
-        read = parseInt(document.getElementById("ptecore_reading").value) ;
-        write = parseInt(document.getElementById("ptecore_writing").value) ;
+        speak = parseFloat(document.getElementById("ptecore_speaking").value) ;
+        listen = parseFloat(document.getElementById("ptecore_listening").value) ;
+        read = parseFloat(document.getElementById("ptecore_reading").value) ;
+        write = parseFloat(document.getElementById("ptecore_writing").value) ;
     }
     else if (firstl === 4) {
-        speak = parseInt(document.getElementById("tef_speaking").value) ;
-        listen = parseInt(document.getElementById("tef_listening").value) ;
-        read = parseInt(document.getElementById("tef_reading").value) ;
-        write = parseInt(document.getElementById("tef_writing").value) ;
+        speak = parseFloat(document.getElementById("tef_speaking").value) ;
+        listen = parseFloat(document.getElementById("tef_listening").value) ;
+        read = parseFloat(document.getElementById("tef_reading").value) ;
+        write = parseFloat(document.getElementById("tef_writing").value) ;
     }
     else if (firstl === 5) {
-        speak = parseInt(document.getElementById("tcf_speaking").value) ;
-        listen = parseInt(document.getElementById("tcf_listening").value) ;
-        read = parseInt(document.getElementById("tcf_reading").value) ;
-        write = parseInt(document.getElementById("tcf_writing").value) ;
+        speak = parseFloat(document.getElementById("tcf_speaking").value) ;
+        listen = parseFloat(document.getElementById("tcf_listening").value) ;
+        read = parseFloat(document.getElementById("tcf_reading").value) ;
+        write = parseFloat(document.getElementById("tcf_writing").value) ;
     }
 
     var secondl = parseInt(document.getElementById("other_lang_test").value) ;
     var sspeak, slisten, sread, swrite;
     if (secondl === 4) {
-        sspeak = parseInt(document.getElementById("tef2_speaking").value) ;
-        slisten = parseInt(document.getElementById("tef2_listening").value) ;
-        sread = parseInt(document.getElementById("tef2_reading").value) ;
-        swrite = parseInt(document.getElementById("tef2_writing").value) ;
+        sspeak = parseFloat(document.getElementById("tef2_speaking").value) ;
+        slisten = parseFloat(document.getElementById("tef2_listening").value) ;
+        sread = parseFloat(document.getElementById("tef2_reading").value) ;
+        swrite = parseFloat(document.getElementById("tef2_writing").value) ;
     }
     else if (secondl === 5) {
-        sspeak = parseInt(document.getElementById("tcf2_speaking").value) ;
-        slisten = parseInt(document.getElementById("tcf2_listening").value) ;
-        sread = parseInt(document.getElementById("tcf2_reading").value) ;
-        swrite = parseInt(document.getElementById("tcf2_writing").value) ;
+        sspeak = parseFloat(document.getElementById("tcf2_speaking").value) ;
+        slisten = parseFloat(document.getElementById("tcf2_listening").value) ;
+        sread = parseFloat(document.getElementById("tcf2_reading").value) ;
+        swrite = parseFloat(document.getElementById("tcf2_writing").value) ;
     }
     else if (secondl === 0) {
         sspeak = -1 ;

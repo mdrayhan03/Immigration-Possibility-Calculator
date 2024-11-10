@@ -313,13 +313,13 @@ function federal_skilled_workerCalculation() {
     console.log("Total: "+languagePoint +"+"+ educationPoint +"+" + work_expPoint +"+" + agePoint +"+" + arrangeworkPoint +"+" + adaptabilityPoint +"="+totalPoint) ;
 
     var feredal_skill_output = document.getElementsByClassName("federal_skill_output")[0] ;
-    var text = "<h1>Federal Skill Worker Point: " + totalPoint + "</h1>" +
-               "<h2>Language skills points: " + languagePoint + "</h2>" +
-               "<h2>Education points: " + educationPoint + "</h2>" +
-               "<h2>Work experience points: " + work_expPoint + "</h2>" +
-               "<h2>Age points: " + agePoint + "</h2>" +
-               "<h2>Arranged employment in Canada points: " + arrangeworkPoint + "</h2>" +
-               "<h2>Adaptability points: " + adaptabilityPoint + "</h2><br>" 
+    var text = "<br><h1>Federal Skill Worker Point: " + totalPoint + "</h1>" +
+               "<p>Language skills points: " + languagePoint + "</p>" +
+               "<p>Education points: " + educationPoint + "</p>" +
+               "<p>Work experience points: " + work_expPoint + "</p>" +
+               "<p>Age points: " + agePoint + "</p>" +
+               "<p>Arranged employment in Canada points: " + arrangeworkPoint + "</p>" +
+               "<p>Adaptability points: " + adaptabilityPoint + "</p><br>" 
             ;
     if (totalPoint >= 67) {
         text += "<h2>You score 67 points or higher, you may qualify for the Federal Skilled Worker Program. You can then submit a profile to the Express Entry pool.</h2>" ;
