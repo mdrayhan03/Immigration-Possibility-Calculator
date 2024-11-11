@@ -325,25 +325,38 @@ function info_popup_Function(element) {
     one.style.height = "100%" ;
 }
 
+
 function info_popup_cross_Function() {
     var element = document.getElementsByClassName("main-body")[0] ;
     element.style.width = "0px" ;
     element.style.height = "0px" ;
 }
 
-function check_Function(element) {
+
+function check_Function() {
+    console.log("check");
     var button = document.getElementsByClassName("popup")[0] ;
-    if (element.checked) {
-        button.disabled = false ;
-    }
-    else {
-        button.disabled = true ;
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var country = document.getElementById("country").value;
+
+    // Check if the checkbox is selected
+    var isChecked = document.getElementById("check").checked;
+
+
+    // Enable the button only if all fields are filled and the checkbox is checked
+    if (name && email && country && isChecked) {
+        button.disabled = false;
+    } else {
+        button.disabled = true;
     }
 }
 
 function suggestion_show_Function() {
     var one = document.getElementsByClassName("main-body")[0] ;
     var two = document.getElementsByClassName("suggestion-main")[0]
+
     one.style.width = "0px" ;
     one.style.height = "0px" ;
     two.style.maxHeight = "0px" ;
