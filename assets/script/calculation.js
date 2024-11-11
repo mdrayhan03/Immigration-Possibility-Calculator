@@ -57,6 +57,61 @@ function getCLBLevel(test, listening, reading, writing, speaking) {
     return result;
 }
 
+// get range accroding to clb
+function getMarkRangeForCLBLevel(test, listening, reading, writing, speaking) {
+    const clbMapping = {
+        "CELPIP-G": {
+            listening: {"0-3.9": 0, "4-4.9": 4, "5-5.9": 5, "6-6.9": 6, "7-7.9": 7, "8-8.9": 8, "9-9.9": 9, "10-10.9": 10 },
+            reading: {"0-3.9": 0, "4-4.9": 4, "5-5.9": 5, "6-6.9": 6,  "7-7.9": 7, "8-8.9": 8, "9-9.9": 9, "10-10.9": 10 },
+            writing: {"0-3.9": 0, "4-4.9": 4, "5-5.9": 5, "6-6.9": 6,  "7-7.9": 7, "8-8.9": 8, "9-9.9": 9, "10-10.9": 10 },
+            speaking: {"0-3.9": 0, "4-4.9": 4, "5-5.9": 5, "6-6.9": 6,  "7-7.9": 7, "8-8.9": 8, "9-9.9": 9, "10-10.9": 10 }
+        },
+        "IELTS": {
+            listening: {"0-4.4": 0, "4.5-4.9": 4, "5.0-5.4": 5, "5.5-5.9": 6,  "6.0-7.4": 7, "7.5-7.9": 8, "8.0-8.4": 9, "8.5-9.0": 10 },
+            reading: {"0-3.4": 0, "3.5-3.9": 4, "4.0-4.9": 5, "5.0-5.9": 6,  "6.0-6.4": 7, "6.5-6.9": 8, "7.0-7.9": 9, "8.0-9.0": 10 },
+            writing: {"0-3.9": 0, "4-4.9": 4, "5.0-5.4": 5, "5.5-5.9": 6,  "6.0-6.4": 7, "6.5-6.9": 8, "7.0-7.4": 9, "7.5-9.0": 10 },
+            speaking: {"0-3.9": 0, "4-4.9": 4, "5.0-5.4": 5, "5.5-5.9": 6,  "6.0-6.4": 7, "6.5-6.9": 8, "7.0-7.4": 9, "7.5-9.0": 10 }
+        },
+        "PTE": {
+            listening: {'0-27': 0,'28-38': 4,'39-49': 5,'50-59': 6, '60-70': 7, '71-81': 8, '82-88': 9, '89-90': 10 },
+            reading: {'0-32': 0,'33-41': 4,'42-50': 5,'51-59': 6, '60-68': 7, '69-77': 8, '78-87': 9, '88-90': 10 },
+            writing: {'0-40': 0,'41-50': 4,'51-59': 5,'60-68': 6, '69-78': 7, '79-87': 8, '88-89': 9, '90': 10 },
+            speaking: {'0-41': 0,'42-50': 4,'51-58': 5,'59-67': 6, '68-75': 7, '76-83': 8, '84-88': 9, '89-90': 10 }
+        },
+        "TEF Canada": {
+            listening: {'0-144': 0, '145-180': 4, '181-216': 5, '217-248': 6, '249-279': 7, '280-297': 8, '298-360': 9 },
+            reading: {'0-120': 0, '121-150': 4, '151-180': 5, '181-206': 6, '207-232': 7, '233-247': 8, '248-300': 9 },
+            writing: {'0-180': 0, '181-225': 4, '226-270': 5, '271-309': 6, '310-348': 7, '349-370': 8, '371-450': 9 },
+            speaking: {'0-180': 0, '181-225': 4, '226-270': 5, '271-309': 6, '310-348': 7, '349-370': 8, '371-450': 9 }
+        },
+        "TCF Canada": {
+            listening: {'0-330': 0, '331-368': 4, '369-397': 5, '398-457': 6, '458-502': 7, '503-522': 8, '523-699': 9 },
+            reading: {'0-342': 0, '342-374': 4, '375-405': 5, '406-452': 6, '453-498': 7, '499-523': 8, '524-699': 9 },
+            writing: {'4-5': 0, '6.0-6.9': 4, '7-9': 5, '10-11': 6, '10-11': 7, '12-13': 8, '14-20': 9 },
+            speaking: {'4-5': 0, '6.0-6.9': 4, '7-9': 5, '10-11': 6, '10-11': 7, '12-13': 8, '14-20': 9 }
+        }
+    };
+
+    function getRangeForCLB(clbLevel, rangeMapping) {
+        for (let key in rangeMapping) {
+            if (rangeMapping[key] === clbLevel) {
+                return key;
+            }
+        }
+        return null;
+    }
+
+    const result = {
+        listening: getRangeForCLB(listening, clbMapping[test].listening),
+        reading: getRangeForCLB(reading, clbMapping[test].reading),
+        writing: getRangeForCLB(writing, clbMapping[test].writing),
+        speaking: getRangeForCLB(speaking, clbMapping[test].speaking)
+    };
+
+    return result;
+}
+
+
 // clb level converter for first language
 function firstclblevel(element) {
     var value = parseInt(element.value) ;
@@ -853,41 +908,120 @@ function suggestionFunction (total, fclb, fclbpoint) {
     // short term    
     stext = "<tr><td><b><u>Short Term</u></b></td><td></td></tr>";
 
-    // language 
-    if (fclb[0] < 9) {
-        firstLanguage.push("Listening") ;
-        firstLanguagePoint.push(29-fclbpoint["listening"])
-    }
-    if (fclb[1] < 9) {
-        firstLanguage.push("Reading") ;
-        firstLanguagePoint.push(29-fclbpoint["reading"])
-    }
-    if (fclb[2] < 9) {
-        firstLanguage.push("Writing") ;
-        firstLanguagePoint.push(29-fclbpoint["writing"])
-    }
-    if (fclb[3] < 9) {
-        firstLanguage.push("Speaking") ;
-        firstLanguagePoint.push(29-fclbpoint["speaking"])        
-    }
-
     stext += "<tr><td><b>Language Improvement:</b> Improving your " ;
+
+    var test ;
     
     if (parseInt(document.getElementById("language_test_type").value) === 1) {
         stext += "CELPIP-G " ;
+        test = "CELPIP-G" ;
     }
     else if (parseInt(document.getElementById("language_test_type").value) === 2) {
         stext += "IELTS " ;
+        test = "IELTS" ;
     }
     else if (parseInt(document.getElementById("language_test_type").value) === 3) {
         stext += "PTE Core " ;
+        test = "PTE Core" ;
     }
     else if (parseInt(document.getElementById("language_test_type").value) === 4) {
         stext += "TEF Canada " ;
+        test = "TEF Canada" ;
     }
     else if (parseInt(document.getElementById("language_test_type").value) === 5) {
         stext += "TCF Canada " ;
+        test = "TCF Canada" ;
     }
+    
+    if (status) {
+        if (fclb[0] < 9 ||fclb[1] < 9 ||fclb[2] < 9 ||fclb[3] < 9){
+            var range = getMarkRangeForCLBLevel(test, 9,9,9,9) ;
+            // language 
+            if (fclb[0] < 9) {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(29-fclbpoint["listening"])
+            }
+            if (fclb[1] < 9) {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(29-fclbpoint["reading"])
+            }
+            if (fclb[2] < 9) {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(29-fclbpoint["writing"])
+            }
+            if (fclb[3] < 9) {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(29-fclbpoint["speaking"])        
+            }
+        }
+        else {
+            var range = getMarkRangeForCLBLevel(test, 10,10,10,10) ;
+            // language 
+            // language 
+            if (fclb[0] < 10) {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(32-fclbpoint["listening"])
+            }
+            if (fclb[1] < 10) {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(32-fclbpoint["reading"])
+            }
+            if (fclb[2] < 10) {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(32-fclbpoint["writing"])
+            }
+            if (fclb[3] < 10) {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(32-fclbpoint["speaking"])
+            }
+        }
+    }
+
+    else {
+        if (fclb[0] < 9 ||fclb[1] < 9 ||fclb[2] < 9 ||fclb[3] < 9){
+            var range = getMarkRangeForCLBLevel(test, 9,9,9,9) ;
+            // language 
+            if (fclb[0] < 9) {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(31-fclbpoint["listening"])
+            }
+            if (fclb[1] < 9) {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(31-fclbpoint["reading"])
+            }
+            if (fclb[2] < 9) {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(31-fclbpoint["writing"])
+            }
+            if (fclb[3] < 9) {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(31-fclbpoint["speaking"])        
+            }
+        }
+        else {
+            var range = getMarkRangeForCLBLevel(test, 10,10,10,10) ;
+            // language 
+            // language 
+            if (fclb[0] < 10) {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(34-fclbpoint["listening"])
+            }
+            if (fclb[1] < 10) {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(34-fclbpoint["reading"])
+            }
+            if (fclb[2] < 10) {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(34-fclbpoint["writing"])
+            }
+            if (fclb[3] < 10) {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(34-fclbpoint["speaking"])
+            }
+        }
+    }
+
+    stext += "score to " ;
 
     if (firstLanguage.length > 1) {
         s = true ;
@@ -900,7 +1034,7 @@ function suggestionFunction (total, fclb, fclbpoint) {
         s = true ;
         stext += firstLanguage[0];
     }
-    stext += " Band to highest score will add additional points.</td>" ;
+    stext += " will add additional points.</td>" ;
     var ftotal = 0 ;
     for (let i=0; i<firstLanguagePoint.length;i++) {
         ftotal += firstLanguagePoint[i] ;
