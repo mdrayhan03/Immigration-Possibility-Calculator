@@ -322,7 +322,7 @@ function federal_skilled_workerCalculation() {
     }
 
     // canadian work experience
-    var workValue = parseInt(document.getElementById("work_exp").value) ;
+    var workValue = parseInt(document.getElementById("skilled_work").value) ;
     work_expPoint = work[workValue] ;
 
     // spouse language
@@ -939,41 +939,80 @@ function suggestionFunction (total, fclb, fclbpoint) {
             // language 
             if (fclb[0] < 9) {
                 firstLanguage.push("Listening(" + range["listening"] + ")") ;
-                firstLanguagePoint.push(29-fclbpoint["listening"])
+                firstLanguagePoint.push(29-fclbpoint["listening"]-1)
             }
+            else {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[1] < 9) {
                 firstLanguage.push("Reading(" + range["reading"] + ")") ;
-                firstLanguagePoint.push(29-fclbpoint["reading"])
+                firstLanguagePoint.push(29-fclbpoint["reading"]-1)
             }
+            else {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[2] < 9) {
                 firstLanguage.push("Writing(" + range["writing"] + ")") ;
-                firstLanguagePoint.push(29-fclbpoint["writing"])
+                firstLanguagePoint.push(29-fclbpoint["writing"]-1)
             }
+            else {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[3] < 9) {
                 firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
-                firstLanguagePoint.push(29-fclbpoint["speaking"])        
+                firstLanguagePoint.push(29-fclbpoint["speaking"]-1)        
             }
+            else {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
         }
         else {
             var range = getMarkRangeForCLBLevel(test, 10,10,10,10) ;
             // language 
-            // language 
             if (fclb[0] < 10) {
                 firstLanguage.push("Listening(" + range["listening"] + ")") ;
-                firstLanguagePoint.push(32-fclbpoint["listening"])
+                firstLanguagePoint.push(32-fclbpoint["listening"]-1)
             }
+            else {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[1] < 10) {
                 firstLanguage.push("Reading(" + range["reading"] + ")") ;
-                firstLanguagePoint.push(32-fclbpoint["reading"])
+                firstLanguagePoint.push(32-fclbpoint["reading"]-1)
             }
+            else {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[2] < 10) {
                 firstLanguage.push("Writing(" + range["writing"] + ")") ;
-                firstLanguagePoint.push(32-fclbpoint["writing"])
+                firstLanguagePoint.push(32-fclbpoint["writing"]-1)
             }
+            else {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[3] < 10) {
                 firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
-                firstLanguagePoint.push(32-fclbpoint["speaking"])
+                firstLanguagePoint.push(32-fclbpoint["speaking"]-1)
             }
+            else {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
         }
     }
 
@@ -983,20 +1022,40 @@ function suggestionFunction (total, fclb, fclbpoint) {
             // language 
             if (fclb[0] < 9) {
                 firstLanguage.push("Listening(" + range["listening"] + ")") ;
-                firstLanguagePoint.push(31-fclbpoint["listening"])
+                firstLanguagePoint.push(31-fclbpoint["listening"]-1)
             }
+            else {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[1] < 9) {
                 firstLanguage.push("Reading(" + range["reading"] + ")") ;
-                firstLanguagePoint.push(31-fclbpoint["reading"])
+                firstLanguagePoint.push(31-fclbpoint["reading"]-1)
             }
+            else {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[2] < 9) {
                 firstLanguage.push("Writing(" + range["writing"] + ")") ;
-                firstLanguagePoint.push(31-fclbpoint["writing"])
+                firstLanguagePoint.push(31-fclbpoint["writing"]-1)
             }
+            else {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[3] < 9) {
                 firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
-                firstLanguagePoint.push(31-fclbpoint["speaking"])        
+                firstLanguagePoint.push(31-fclbpoint["speaking"]-1)        
             }
+            else {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
         }
         else {
             var range = getMarkRangeForCLBLevel(test, 10,10,10,10) ;
@@ -1004,29 +1063,50 @@ function suggestionFunction (total, fclb, fclbpoint) {
             // language 
             if (fclb[0] < 10) {
                 firstLanguage.push("Listening(" + range["listening"] + ")") ;
-                firstLanguagePoint.push(34-fclbpoint["listening"])
+                firstLanguagePoint.push(34-fclbpoint["listening"]-1)
             }
+            else {
+                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[1] < 10) {
                 firstLanguage.push("Reading(" + range["reading"] + ")") ;
-                firstLanguagePoint.push(34-fclbpoint["reading"])
+                firstLanguagePoint.push(34-fclbpoint["reading"]-1)
             }
+            else {
+                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[2] < 10) {
                 firstLanguage.push("Writing(" + range["writing"] + ")") ;
-                firstLanguagePoint.push(34-fclbpoint["writing"])
+                firstLanguagePoint.push(34-fclbpoint["writing"]-1)
             }
+            else {
+                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
             if (fclb[3] < 10) {
                 firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
-                firstLanguagePoint.push(34-fclbpoint["speaking"])
+                firstLanguagePoint.push(34-fclbpoint["speaking"]-1)
             }
+            else {
+                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguagePoint.push(0)
+            }
+
         }
     }
 
     stext += "score to " ;
+    
 
     if (firstLanguage.length > 1) {
         s = true ;
         for (let i = 0; i < firstLanguage.length-1 ; i++) {
-            stext += firstLanguage[i] + " & " ;
+            stext += firstLanguage[i] + ", " ;
         }
         stext += firstLanguage[firstLanguage.length-1]
     }
@@ -1039,6 +1119,42 @@ function suggestionFunction (total, fclb, fclbpoint) {
     for (let i=0; i<firstLanguagePoint.length;i++) {
         ftotal += firstLanguagePoint[i] ;
     }
+  
+    var degree = parseInt(document.getElementById("education").value) ;
+    // degree with clb level    
+    if (fclb[0] < 7 || fclb[1] < 7 || fclb[2] < 7 || fclb[3] < 7) {
+        console.log("Less then 7") ;
+        if (degree === 0 || degree === 1) {ftotal += (canadianworkdegreeone[0]
+        );}
+        else if (degree === 2 || degree === 3 || degree === 4) {ftotal += (canadianworkdegreeone[1]);}
+        else if (degree >= 5) {ftotal += (canadianworkdegreeone[2]);}
+    }
+    else if (fclb[0] < 9 || fclb[1] < 9 || fclb[2] < 9 || fclb[3] < 9) {
+        if (degree === 0 || degree === 1) {ftotal += (canadianworkdegreetwo[0] - canadianworkdegreeone[0]);}
+        else if (degree === 2 || degree === 3 || degree === 4) {ftotal += (canadianworkdegreetwo[1] - canadianworkdegreeone[1]);}
+        else if (degree >= 5) {ftotal += (canadianworkdegreetwo[2] - canadianworkdegreeone[2]);}
+    }
+
+    var foreignwork = parseInt(document.getElementById("skilled_work").value) ;
+
+    console.log("Foreign ",canadianworkdegreetwo[foreignwork] , canadianworkdegreeone[foreignwork]) ;
+
+    if (fclb[0] < 7 || fclb[1] < 7 || fclb[2] < 7 || fclb[3] < 7) {
+        console.log(1);
+        ftotal += canadianworkdegreeone[foreignwork];
+    }
+    
+    else if (fclb[0] < 9 || fclb[1] < 9 || fclb[2] < 9 || fclb[3] < 9) {
+        console.log(2);
+        ftotal += canadianworkdegreetwo[foreignwork] - canadianworkdegreeone[foreignwork];
+    }
+        
+    var certificate = parseInt(document.getElementById("certificate_canada").value) ;
+    if (certificate === 2) {        
+        if (fclb[0] >= 7 || fclb[1] >= 7 || fclb[2] >= 7 || fclb[3] >= 7) {
+            ftotal += 50;
+        }
+    } 
 
     stext += "<td>"+ftotal+" Additional points</td></tr>" ;
 
