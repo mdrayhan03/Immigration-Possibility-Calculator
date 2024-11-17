@@ -938,38 +938,38 @@ function suggestionFunction (total, fclb, fclbpoint) {
             var range = getMarkRangeForCLBLevel(test, 9,9,9,9) ;
             // language 
             if (fclb[0] < 9) {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(29-fclbpoint["listening"]-1)
             }
             else {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[1] < 9) {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(29-fclbpoint["reading"]-1)
             }
             else {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[2] < 9) {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(29-fclbpoint["writing"]-1)
             }
             else {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[3] < 9) {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(29-fclbpoint["speaking"]-1)        
             }
             else {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
@@ -978,38 +978,38 @@ function suggestionFunction (total, fclb, fclbpoint) {
             var range = getMarkRangeForCLBLevel(test, 10,10,10,10) ;
             // language 
             if (fclb[0] < 10) {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(32-fclbpoint["listening"]-1)
             }
             else {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[1] < 10) {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(32-fclbpoint["reading"]-1)
             }
             else {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[2] < 10) {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(32-fclbpoint["writing"]-1)
             }
             else {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[3] < 10) {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(32-fclbpoint["speaking"]-1)
             }
             else {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
@@ -1021,38 +1021,38 @@ function suggestionFunction (total, fclb, fclbpoint) {
             var range = getMarkRangeForCLBLevel(test, 9,9,9,9) ;
             // language 
             if (fclb[0] < 9) {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(31-fclbpoint["listening"]-1)
             }
             else {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[1] < 9) {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(31-fclbpoint["reading"]-1)
             }
             else {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[2] < 9) {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(31-fclbpoint["writing"]-1)
             }
             else {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[3] < 9) {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(31-fclbpoint["speaking"]-1)        
             }
             else {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
@@ -1062,38 +1062,38 @@ function suggestionFunction (total, fclb, fclbpoint) {
             // language 
             // language 
             if (fclb[0] < 10) {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(34-fclbpoint["listening"]-1)
             }
             else {
-                firstLanguage.push("Listening(" + range["listening"] + ")") ;
+                firstLanguage.push("Listening - " + range["listening"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[1] < 10) {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(34-fclbpoint["reading"]-1)
             }
             else {
-                firstLanguage.push("Reading(" + range["reading"] + ")") ;
+                firstLanguage.push("Reading - " + range["reading"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[2] < 10) {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(34-fclbpoint["writing"]-1)
             }
             else {
-                firstLanguage.push("Writing(" + range["writing"] + ")") ;
+                firstLanguage.push("Writing - " + range["writing"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
             if (fclb[3] < 10) {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(34-fclbpoint["speaking"]-1)
             }
             else {
-                firstLanguage.push("Speaking(" + range["speaking"] + ")") ;
+                firstLanguage.push("Speaking - " + range["speaking"].split("-")[0] ) ;
                 firstLanguagePoint.push(0)
             }
 
